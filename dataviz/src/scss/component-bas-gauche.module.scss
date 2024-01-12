@@ -1,0 +1,57 @@
+$primaryColor: #6E1E78;
+
+@mixin commonBox($width, $height) {
+  width: $width;
+  height: $height;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background: $primaryColor;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+%textCommon {
+  color:white;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+}
+%smallText {
+  @extend  %textCommon;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.textSmall {
+  @extend %smallText;
+}
+
+.boldText {
+  @extend %textCommon;
+  font-size: 3.125rem;;
+  font-weight: 700;
+}
+
+.boxGroup {
+  display: flex;
+}
+.commonBoxOne {
+  @include commonBox(19.1875rem, 2.25rem);
+  @extend %smallText;
+  padding: 0.25rem 0;
+}
+
+.commonBoxTwo {
+  @include commonBox(9.5rem, 9.0625rem);
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.commonBoxThree {
+  @include commonBox(6.3125rem, 6.4375rem)
+}
+
