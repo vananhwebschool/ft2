@@ -29,3 +29,21 @@ export default function SecondPage() {
 
     )
 }
+
+/* Convert the original dataset to data format required by Nivo
+
+Array<{
+    id:   string | number
+    data: Array<{
+        x: number | string | Date
+        y: number | string | Date
+    }>
+}>
+
+id: intemperies
+x: mois
+y: nb d'incidents
+ */
+function convertDataForChart() {
+
+}

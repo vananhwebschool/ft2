@@ -1,14 +1,8 @@
-// install (please try to align the version of installed @nivo packages)
-// yarn add @nivo/line
-import {ResponsiveLine} from '@nivo/line'
 
+import {ResponsiveLine} from '@nivo/line'
 // make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
 // eslint-disable-next-line react/prop-types
-export default function LineChart({data /* see data tab */}) {
+export default function LineChart({data}) {
     const schemeColors = [
         "#BDBDBD",
         "#F00",
@@ -90,21 +84,4 @@ export default function LineChart({data /* see data tab */}) {
     )
 }
 
-/* Convert the original dataset to data format required by Nivo
-
-Array<{
-    id:   string | number
-    data: Array<{
-        x: number | string | Date
-        y: number | string | Date
-    }>
-}>
-
-id: intemperies
-x: mois
-y: nb d'incidents
- */
-function convertDataForChart() {
-
-}
 
