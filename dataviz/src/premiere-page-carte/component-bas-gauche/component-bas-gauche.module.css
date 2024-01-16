@@ -1,11 +1,11 @@
-.boldText, .commonBoxOne, .textSmall {
+.boldText, .textSmall, .commonBoxOne {
   color: white;
   text-align: center;
   font-style: normal;
   line-height: normal;
 }
 
-.commonBoxOne, .textSmall {
+.textSmall, .commonBoxOne {
   font-size: 1.25rem;
   font-weight: 500;
 }

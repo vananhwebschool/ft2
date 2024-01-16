@@ -1,0 +1,218 @@
+.boldText, .textSmall, .commonBoxOneTextLine {
+  color: white;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+}
+
+.textSmall, .commonBoxOneTextLine {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.logoTextBox {
+  display: flex;
+}
+.logoTextBox .logo {
+  width: 9.875rem;
+  height: 6.875rem;
+  flex-shrink: 0;
+  margin-right: 2rem;
+}
+
+.boldText {
+  font-size: 3.125rem;
+  font-weight: 700;
+}
+
+.commonBoxOneTextLine {
+  width: 12.5rem;
+  height: 3.375rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background: #6E1E78;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+.commonBoxTwoTextLines {
+  width: 10.3125rem;
+  height: 6.875rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background: #6E1E78;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.selectorButton {
+  background-color: #1F1F1F;
+  border-radius: 0.25rem;
+  width: 3.125rem;
+  height: 3.375rem;
+  flex-shrink: 0;
+}
+.selectorButton_arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+
+.firstIntemperieButtonSection {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.secondIntemperieButtonSection {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.neigeButton, .orageButton, .vegetationButton, .ventFortButton, .fortePluieButton, .verglasButton, .diversButton, .brouillardButton, .forteChaleurButton {
+  width: 5.625rem;
+  height: 5.625rem;
+  flex-shrink: 0;
+  border-radius: 22.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.neigeButton_nameIntemp, .orageButton_nameIntemp, .vegetationButton_nameIntemp, .ventFortButton_nameIntemp, .fortePluieButton_nameIntemp, .verglasButton_nameIntemp, .diversButton_nameIntemp, .brouillardButton_nameIntemp, .forteChaleurButton_nameIntemp {
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.forteChaleurButton {
+  border: 4px solid #F00;
+}
+.forteChaleurButton_vector1 {
+  width: 1.0625rem;
+  height: 1.9375rem;
+  flex-shrink: 0;
+  fill: #F00;
+  position: relative;
+  right: 1px;
+}
+.forteChaleurButton_vector2 {
+  width: 0.4375rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+  fill: #F00;
+  z-index: 1;
+  position: absolute;
+  top: 208px;
+  left: 307px;
+}
+.forteChaleurButton_nameIntemp {
+  color: #F00;
+}
+
+.brouillardButton {
+  border: 4px solid #BDBDBD;
+}
+.brouillardButton svg, .brouillardButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.brouillardButton_nameIntemp {
+  color: #BDBDBD;
+}
+
+.diversButton {
+  border: 4px solid #FF5C00;
+}
+.diversButton svg, .diversButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.diversButton_nameIntemp {
+  color: #FF5C00;
+}
+
+.verglasButton {
+  border: 4px solid #398CD0;
+}
+.verglasButton svg, .verglasButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.verglasButton_nameIntemp {
+  color: #398CD0;
+}
+
+.fortePluieButton {
+  border: 4px solid #0000FF;
+}
+.fortePluieButton svg, .fortePluieButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.fortePluieButton_nameIntemp {
+  color: #0000FF;
+}
+
+.ventFortButton {
+  border: 4px solid #69717F;
+}
+.ventFortButton svg, .ventFortButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.ventFortButton_nameIntemp {
+  color: #69717F;
+}
+
+.vegetationButton {
+  border: 4px solid #31AA35;
+}
+.vegetationButton svg, .vegetationButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.vegetationButton_nameIntemp {
+  color: #31AA35;
+}
+
+.orageButton {
+  border: 4px solid #FFB82B;
+}
+.orageButton svg, .orageButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.orageButton_nameIntemp {
+  color: #FFB82B;
+}
+
+.neigeButton {
+  border: 4px solid #A4D8EB;
+}
+.neigeButton svg, .neigeButton img {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+.neigeButton_nameIntemp {
+  color: #A4D8EB;
+}
+
+/*# sourceMappingURL=second-page-component.module.css.map */

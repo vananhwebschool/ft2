@@ -40,13 +40,3 @@ export default function CommonBox() {
         )
     }
 }
-
-function defineDisplayContent(boxType) {
-    if (boxType === "data") {
-        return <p>Données générales</p>
-    } else if (boxType === "label-selector") {
-        return <p>Axe</p>
-    } else if (boxType === "options-selector") {
-        return
-    }
-}

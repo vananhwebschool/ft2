@@ -1,10 +1,10 @@
-import './App.css'
-import DataBox from "./premiere-page-carte/component-bas-gauche/DataBox.jsx";
-import CommonBox from "./premiere-page-carte/component-bas-gauche/CommonBox.jsx";
-import Component1 from "./premiere-page-carte/resumeAnnee/component1.jsx";
-import Map from "./Map.jsx";
+import './FirstPage.css'
+import DataBox from "./component-bas-gauche/DataBox.jsx";
+import CommonBox from "./component-bas-gauche/CommonBox.jsx";
+import Component1 from "./resumeAnnee/component1.jsx";
+import Map from "./map/Map.jsx";
 
-function App() {
+function FirstPage() {
     return (
         <>
             <Component1></Component1>
@@ -22,4 +22,4 @@ function App() {
     )
 }
 
-export default App
+export default FirstPage

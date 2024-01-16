@@ -1,0 +1,28 @@
+$primaryColor: #6E1E78;
+
+@mixin commonBox($width, $height) {
+  width: $width;
+  height: $height;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background: $primaryColor;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+
+%textBoxCommon {
+  color:white;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+}
+
+%smallText {
+  @extend %textBoxCommon;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
