@@ -5,7 +5,7 @@ import IntemperiesButtonsSection from "./components/IntemperiesButtonsSection.js
 export default function SecondPage() {
     const styleDiv = {
         margin: "0 auto",
-        paddingTop:"5rem",
+        paddingTop:"2rem",
         paddingBottom: "5rem",
         display: "flex",
         justifyContent: "space-between"

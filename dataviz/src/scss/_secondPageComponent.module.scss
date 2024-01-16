@@ -9,6 +9,7 @@ $ventFortColor: #69717F;
 $vegetationColor: #31AA35;
 $orageColor: #FFB82B;
 $neigeColor: #A4D8EB;
+$tousColor: #6E1E78;
 
 .logoTextBox {
   display: flex;
@@ -63,17 +64,12 @@ $neigeColor: #A4D8EB;
   display: flex;
   justify-content: space-between;
   width: 50%;
-}
-
-.secondIntemperieButtonSection {
-  display: flex;
-  justify-content: space-evenly;
-  width: 50%;
+  margin-bottom: 15px;
 }
 
 %intemperieButtonCommon {
-  width: 5.625rem;
-  height: 5.625rem;
+  width: 8.4375rem;
+  height: 8.4375rem;
   flex-shrink: 0;
   border-radius: 22.5rem;
   display: flex;
@@ -86,7 +82,7 @@ $neigeColor: #A4D8EB;
 %intempButtonNameCommon {
   flex-shrink: 0;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -97,8 +93,8 @@ $neigeColor: #A4D8EB;
   border: 4px solid $intempColor;
 
   &_vector1 {
-    width: 1.0625rem;
-    height: 1.9375rem;
+    width: 1.59375rem;
+    height: 2.90625rem;
     flex-shrink: 0;
     fill: $intempColor;
     position: relative;
@@ -106,14 +102,14 @@ $neigeColor: #A4D8EB;
   }
 
   &_vector2 {
-    width: 0.4375rem;
-    height: 0.875rem;
+    width: 0.65625rem;
+    height: 1.3125rem;
     flex-shrink: 0;
     fill: $intempColor;
     z-index: 1;
     position: absolute;
-    top: 208px;
-    left: 307px;
+    top: 188px;
+    left: 314px;
   }
 
   &_nameIntemp {
@@ -131,8 +127,8 @@ $neigeColor: #A4D8EB;
   border: 4px solid $intempColor;
 
   svg,img {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
   }
 
   &_nameIntemp {
@@ -171,5 +167,9 @@ $neigeColor: #A4D8EB;
 
 .neigeButton {
   @include intemperieButtonOneVector($neigeColor);
+}
+
+.tousButton {
+  @include intemperieButtonOneVector($tousColor);
 }
 

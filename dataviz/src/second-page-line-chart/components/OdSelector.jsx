@@ -6,7 +6,7 @@ export default function OdSelector()
 {
     return (
         <div className={styles.logoTextBox}>
-            <CommonBoxSecondPage text={"OD"} />
+            <CommonBoxSecondPage text={"Paris / Grenoble"} />
             <button className={styles.selectorButton}>
                 <i className={styles.selectorButton_arrow}></i>
             </button>
