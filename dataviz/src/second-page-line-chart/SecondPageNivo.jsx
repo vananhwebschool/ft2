@@ -1,28 +1,13 @@
-import SncfLogo from "./components/SncfLogo.jsx";
-import OdSelector from "./components/OdSelector.jsx";
+import SncfLogo from "../anas-second-page-line-chart/components/SncfLogo.jsx";
+import OdSelector from "../anas-second-page-line-chart/components/OdSelector.jsx";
+import LineChart from "./components/LineChartNivo.jsx";
 import dataset1 from "../data/dataset1.json"
+import dataTest from "../data/dataTest.json"
 import {useState} from "react";
-import styles from "./components/second-page-component.module.css";
-import IntemperieButton from "./components/IntemperieButton.jsx";
-import React from 'react';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Tooltip,
-} from 'chart.js';
-import {Line} from 'react-chartjs-2';
+import styles from "../anas-second-page-line-chart/components/second-page-component.module.css";
+import IntemperieButton from "../anas-second-page-line-chart/components/IntemperieButton.jsx";
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Tooltip,
-);
-export default function SecondPage() {
+export default function SecondPageNivo() {
     const styleDiv = {
         margin: "0 auto",
         paddingTop: "2rem",
@@ -39,19 +24,9 @@ export default function SecondPage() {
         "Intempéries - Orage / Grêle",
         "Intempéries - Neige / congères"];
 
-    const initialChartData = getChartDataFilteredForMultipleIntemperiesNew(intemperiesClimatiquesList);
+    const initialChartData = getChartDataFilteredForMultipleIntemperies(intemperiesClimatiquesList);
     const [chartData, setChartData] = useState(initialChartData);
     const [activeButtons, setActiveButtons] = useState(["tous"]);
-    const options = {
-        responsive: true,
-        plugins: {
-            title: {
-                display: true,
-                text: 'Chart.js Line Chart',
-            },
-        },
-    };
-
 
     function modifyActiveButtonsList(buttonId) {
         if (activeButtons === undefined) {
@@ -60,28 +35,34 @@ export default function SecondPage() {
             let modifiedList;
             if (activeButtons.includes(buttonId)) {
                 modifiedList = activeButtons.filter(e => e !== buttonId);
+                console.log("modifiedList1");
+                console.log(modifiedList);
             } else {
                 let removedTous = activeButtons.filter(e => e !== "tous");
                 modifiedList = [buttonId, ...removedTous];
+                console.log("modifiedList2");
+                console.log(modifiedList);
             }
             setActiveButtons(modifiedList);
-            console.log("modifiedList");
+            console.log("anhtv1");
             console.log(modifiedList)
-            setChartData(getChartDataFilteredForMultipleIntemperiesNew(modifiedList));
+            setChartData(getChartDataFilteredForMultipleIntemperies(modifiedList));
         }
     }
 
     function modifyActiveButtonsListWhenClickTous() {
         if (activeButtons === undefined) {
             setActiveButtons(["tous"]);
-            setChartData(getChartDataFilteredForMultipleIntemperiesNew(intemperiesClimatiquesList));
+            console.log("anhtv2");
+            setChartData(getChartDataFilteredForMultipleIntemperies(intemperiesClimatiquesList));
         } else {
             let modifiedList;
             if (activeButtons.includes("tous") && activeButtons.length === 1) {
-                modifiedList = ["tous"];
+                modifiedList  = ["tous"];
             } else {
                 modifiedList = ["tous"];
-                setChartData(getChartDataFilteredForMultipleIntemperiesNew(intemperiesClimatiquesList));
+                console.log("anhtv3");
+                setChartData(getChartDataFilteredForMultipleIntemperies(intemperiesClimatiquesList));
             }
             setActiveButtons(modifiedList);
         }
@@ -98,8 +79,8 @@ export default function SecondPage() {
     return (
         <>
             <div style={styleDiv}>
-                <SncfLogo/>
-                <OdSelector/>
+                <SncfLogo />
+                <OdSelector />
             </div>
             <div>
                 <div className={styles.firstIntemperieButtonSection}>
@@ -108,6 +89,8 @@ export default function SecondPage() {
                                       isActive={getButtonStatus(intemperiesClimatiquesList[0])}
                                       onShow={() => {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[0]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[0]));
+                                          console.log("clicked brouillard");
                                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path
@@ -118,8 +101,10 @@ export default function SecondPage() {
                     <IntemperieButton oneVector={true} name={"Forte chaleur"} percentage={"5%"}
                                       cssStyleName={"forteChaleur"}
                                       isActive={getButtonStatus(intemperiesClimatiquesList[1])}
-                                      onShow={() => {
+                                      onShow={()=> {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[1]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[1]));
+                                          console.log("clicked forte chaleur")
                                       }}/>
                     {/*<IntemperieButton oneVector={false} name={"Divers"} percentage={"9%"} cssStyleName={"divers"}>*/}
                     {/*    <img src={"src/assets/divers-button.svg"} alt={"divers"}/>*/}
@@ -129,6 +114,8 @@ export default function SecondPage() {
                                       isActive={getButtonStatus(intemperiesClimatiquesList[2])}
                                       onShow={() => {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[2]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[2]));
+                                          console.log("clicked Givre / Verglas")
                                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path
@@ -141,6 +128,8 @@ export default function SecondPage() {
                                       isActive={getButtonStatus(intemperiesClimatiquesList[3])}
                                       onShow={() => {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[3]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[3]));
+                                          console.log("clicked Fortes pluies")
                                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path
@@ -152,6 +141,8 @@ export default function SecondPage() {
                                       isActive={getButtonStatus(intemperiesClimatiquesList[4])}
                                       onShow={() => {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[4]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[4]));
+                                          console.log("clicked Vent fort")
                                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path
@@ -164,8 +155,10 @@ export default function SecondPage() {
                     <IntemperieButton oneVector={false} name={"Végétation"} percentage={"16%"}
                                       cssStyleName={"vegetation"}
                                       isActive={getButtonStatus(intemperiesClimatiquesList[5])}
-                                      onShow={() => {
+                                      onShow={()=> {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[5]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[5]));
+                                          console.log("clicked Végétation");
                                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path
@@ -177,6 +170,8 @@ export default function SecondPage() {
                                       isActive={getButtonStatus(intemperiesClimatiquesList[6])}
                                       onShow={() => {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[6]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[6]));
+                                          console.log("clicked Orage / Grêle")
                                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path
@@ -188,6 +183,8 @@ export default function SecondPage() {
                                       isActive={getButtonStatus(intemperiesClimatiquesList[7])}
                                       onShow={() => {
                                           modifyActiveButtonsList(intemperiesClimatiquesList[7]);
+                                          // setChartData(getChartDataFilteredByIntemperie(intemperiesClimatiquesList[7]));
+                                          console.log("clicked Neige / congères")
                                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path
@@ -200,12 +197,14 @@ export default function SecondPage() {
                                       isActive={getButtonStatus("tous")}
                                       onShow={() => {
                                           modifyActiveButtonsListWhenClickTous();
+                                          // setChartData(getChartDataFilteredForMultipleIntemperies(intemperiesClimatiquesList));
+                                          console.log("clicked tous")
                                       }}>
                     </IntemperieButton>
                 </div>
             </div>
-            <div style={{display: "flex", justifyContent: "center", height:"40rem"}}>
-                <Line options={options} data={chartData}/>
+            <div style={{height: "30rem"}}>
+                {!!dataTest && <LineChart data={dataTest}/>}
             </div>
         </>
 
@@ -218,18 +217,20 @@ function getDataFilteredAxeSudEstParisGrenobleOD() {
         .filter(e => e.OD === "Grenoble BV - Paris-Gare-de-Lyon BV" || e.OD === "Paris-Gare-de-Lyon BV - Grenoble BV");
 }
 
-
-/* params: name of intemperie
-output: {label: nom d'intemperie1,
-    data: [nb d'incident each month eg 1,0,15,0,0,0],
-    borderColor: color of intemperie,
-    backgroundColor: color of intemperie
-    }
+/* Convert the original dataset to data format required by Nivo (filter one intemperie)
+param: name of intemperie
+output: for an intemperie id, on month x, it occurs y times
+Array<{
+    id: intemperie
+    data: Array<{
+        x: mois
+        y: nb d'incidents
+    }>
+}>
  */
-function getChartDataFilteredByIntemperieNew(intemperie) {
+function getChartDataFilteredByIntemperie(intemperie) {
     const monthNbIncidentObj = getObjectContainingMonthsAndNbIncidents();
-    const nbIncidentsAllMonths = [];
-    const chartObj = {};
+
     try {
         if (!!dataset1 && Array.isArray(dataset1)) {
             const filtered = getDataFilteredAxeSudEstParisGrenobleOD()
@@ -238,59 +239,13 @@ function getChartDataFilteredByIntemperieNew(intemperie) {
                     // with each incident record of a month, increase +1 the value of the respective month key in object holding record {"1": 0, "2":0,...,"12": 0}
                     ++monthNbIncidentObj[e.Mois_circulation]
                 })
-
-            for (let key in monthNbIncidentObj) {
-                nbIncidentsAllMonths.push(monthNbIncidentObj[key]);
-            }
-
-            chartObj.label = intemperie;
-            chartObj.data = nbIncidentsAllMonths;
-            chartObj.borderColor = getSchemeColor(intemperie);
-            chartObj.backgroundColor = chartObj.borderColor;
         }
-        return chartObj;
+        return [convertToChartDataFormat(monthNbIncidentObj, intemperie)];
     } catch (e) {
         throw ("Error while getting chart data filtered by intemperie");
     }
 }
 
-/* params: list of intemperies
-output:      {
-    labels: Array[months],
-    datasets: Array[
-    {label: nom d'intemperie1,
-    data: [nb d'incident each month],
-    borderColor: color of intemperie,
-    backgroundColor: color of intemperie
-    },
-    {label: nom d'intemperie2,
-    data: [nb d'incident each month],
-    borderColor: color of intemperie,
-    backgroundColor: color of intemperie
-    }
-    ]
-    }
-    */
-function getChartDataFilteredForMultipleIntemperiesNew(paramList) {
-    const datasetsArray = [];
-
-    for (let i = 0; i < paramList.length; ++i) {
-        const dataIntemperie = getChartDataFilteredByIntemperieNew(paramList[i]);
-        datasetsArray.push(dataIntemperie);
-    }
-
-    const monthsArrayInNumber = Array.from("123456789");
-    monthsArrayInNumber.push("10");
-    const labels = monthsArrayInNumber
-        .map(e => convertNumberToMonth(e));
-    const result = {
-        labels,
-        datasets: datasetsArray
-    }
-    console.log("final data");
-    console.log(result.valueOf());
-    return result;
-}
 
 // output: object containing months and incident number of each month set to 0 {"1": 0, "2":0,...,"12": 0}
 function getObjectContainingMonthsAndNbIncidents() {
@@ -302,7 +257,32 @@ function getObjectContainingMonthsAndNbIncidents() {
     for (let i = 0; i < months.length; i++) {
         monthNbIncidentObj[months[i]] = 0;
     }
+
     return monthNbIncidentObj;
+}
+
+/*  params: object containing months and incident number of each month {"1": 15, "2":0,...,"12": 4}, (le nom d')intemperie
+    output: an object in Nivo data format
+    {
+    id:   intemperie
+    data: Array<{
+        x: mois
+        y: nb d'incidents
+    }>
+} */
+function convertToChartDataFormat(object, intemperie) {
+    let chartObj = {
+        id: undefined,
+        data: undefined
+    };
+    chartObj.id = intemperie;
+    let axisDataArray = [];
+
+    for (let key in object) {
+        axisDataArray.push({x: convertNumberToMonth(key), y: object[key]})
+    }
+    chartObj.data = axisDataArray;
+    return chartObj;
 }
 
 /* param: key as number (1-10)
@@ -348,29 +328,42 @@ function convertNumberToMonth(key) {
     return month;
 }
 
-function getSchemeColor(data) {
-    const intemperiesClimatiquesList = ["Intempéries - Brouillard",
-        "Intempéries - Forte chaleur",
-        "Intempéries - Givre / Verglas",
-        "Intempéries - Fortes pluies",
-        "Intempéries - Vent fort",
-        "Végétation",
-        "Intempéries - Orage / Grêle",
-        "Intempéries - Neige / congères"];
-
-    const colorsList = [
-        "#BDBDBD",
-        "#F00",
-        // "#FF5C00",
-        "#398CD0",
-        "#0000FF",
-        "#69717F",
-        "#31AA35",
-        "#FFB82B",
-        "#A4D8EB",
-    ]
-    return colorsList[intemperiesClimatiquesList.indexOf(data)];
+/* Convert the original dataset to data format required by Nivo (filter multiple intemperies)
+param: name of intemperie
+output: array of intemperies and its data (for an intemperie id, on month x, it occurs y times)
+Array<{
+    id: intemperie1
+    data: Array<{
+        x: mois
+        y: nb d'incidents
+    }>,
+    {
+    id: intemperie2
+    data: Array<{
+        x: mois
+        y: nb d'incidents
+    }>
+}>
+ */
+function getChartDataFilteredForMultipleIntemperies(paramList) {
+    try {
+        if (paramList.length > 0) {
+            let chartDataAllIntemperies = [];
+            for (let i = 0; i < paramList.length; ++i) {
+                const chartDataIntemperie = getChartDataFilteredByIntemperie(paramList[i]);
+                if (chartDataIntemperie.length === 1) {
+                    chartDataAllIntemperies.push(chartDataIntemperie[0]);
+                    console.log("pushed");
+                    console.log(chartDataIntemperie[0]);
+                }
+            }
+            console.log("tous data");
+            console.log(chartDataAllIntemperies);
+            return chartDataAllIntemperies;
+        }
+    } catch (e) {
+        throw ("Error while getting chart data filtered by multiple intemperies");
+    }
 }
-
 
 

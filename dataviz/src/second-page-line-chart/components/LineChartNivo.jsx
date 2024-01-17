@@ -3,18 +3,7 @@ import {ResponsiveLine} from '@nivo/line'
 // make sure parent container have a defined height when using
 // eslint-disable-next-line react/prop-types
 export default function LineChart({data}) {
-    const schemeColors = [
-        "#BDBDBD",
-        "#F00",
-        "#FF5C00",
-        "#398CD0",
-        "#0000FF",
-        "#69717F",
-        "#31AA35",
-        "#FFB82B",
-        "#A4D8EB",
-        "#6E1E78"
-    ]
+    let schemeColors = getSchemeColor(data);
     return (
         <ResponsiveLine
             data={data}
@@ -37,10 +26,10 @@ export default function LineChart({data}) {
                 legendOffset: 36
             }}
             axisLeft={{
-                tickSize: 5,
+                tickSize: 2,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'count',
+                legend: "Nombre d'intempéries",
                 legendOffset: -40,
                 legendPosition: 'middle'
             }}
@@ -54,34 +43,37 @@ export default function LineChart({data}) {
             pointLabel="xFormatted"
             pointLabelYOffset={-12}
             useMesh={true}
-            legends={[
-                {
-                    anchor: 'bottom-right',
-                    direction: 'column',
-                    justify: false,
-                    translateX: 100,
-                    translateY: 0,
-                    itemsSpacing: 0,
-                    itemDirection: 'left-to-right',
-                    itemWidth: 80,
-                    itemHeight: 20,
-                    itemOpacity: 0.75,
-                    symbolSize: 12,
-                    symbolShape: 'circle',
-                    symbolBorderColor: 'rgba(0, 0, 0, .5)',
-                    effects: [
-                        {
-                            on: 'hover',
-                            style: {
-                                itemBackground: 'rgba(0, 0, 0, .03)',
-                                itemOpacity: 1
-                            }
-                        }
-                    ]
-                }
-            ]}
+
         />
     )
 }
 
+
+function getSchemeColor(data) {
+    const intemperiesClimatiquesList = ["Intempéries - Brouillard",
+        "Intempéries - Forte chaleur",
+        "Intempéries - Givre / Verglas",
+        "Intempéries - Fortes pluies",
+        "Intempéries - Vent fort",
+        "Végétation",
+        "Intempéries - Orage / Grêle",
+        "Intempéries - Neige / congères"];
+
+    const colorsList = [
+        "#BDBDBD",
+        "#F00",
+        // "#FF5C00",
+        "#398CD0",
+        "#0000FF",
+        "#69717F",
+        "#31AA35",
+        "#FFB82B",
+        "#A4D8EB",
+    ]
+
+
+    let color = colorsList[intemperiesClimatiquesList.indexOf(data)];
+
+    return color;
+}
 

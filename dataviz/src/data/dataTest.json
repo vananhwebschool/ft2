@@ -1,271 +1,362 @@
 [
   {
-    "id": "japan",
-    "color": "hsl(259, 70%, 50%)",
+    "id": "Intempéries - Brouillard",
+    "color": "hsl(268, 70%, 50%)",
     "data": [
       {
-        "x": "plane",
-        "y": 234
+        "x": "Janvier",
+        "y": 0
       },
       {
-        "x": "helicopter",
-        "y": 236
+        "x": "Février",
+        "y": 0
       },
       {
-        "x": "boat",
-        "y": 27
+        "x": "Mars",
+        "y": 0
       },
       {
-        "x": "train",
-        "y": 230
+        "x": "Avril",
+        "y": 1
       },
       {
-        "x": "subway",
-        "y": 156
+        "x": "Mai",
+        "y": 0
       },
       {
-        "x": "bus",
-        "y": 96
+        "x": "Juin",
+        "y": 0
       },
       {
-        "x": "car",
-        "y": 152
+        "x": "Juillet",
+        "y": 0
       },
       {
-        "x": "moto",
-        "y": 190
+        "x": "Août",
+        "y": 0
       },
       {
-        "x": "bicycle",
-        "y": 220
+        "x": "Septembre",
+        "y": 0
       },
       {
-        "x": "horse",
-        "y": 132
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Forte chaleur",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
       },
       {
-        "x": "skateboard",
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 1
+      },
+      {
+        "x": "Juillet",
+        "y": 0
+      },
+      {
+        "x": "Août",
         "y": 2
       },
       {
-        "x": "others",
-        "y": 291
+        "x": "Septembre",
+        "y": 2
+      },
+      {
+        "x": "Octobre",
+        "y": 0
       }
     ]
   },
   {
-    "id": "france",
-    "color": "hsl(44, 70%, 50%)",
+    "id": "Intempéries - Givre / Verglas",
     "data": [
       {
-        "x": "plane",
-        "y": 206
+        "x": "Janvier",
+        "y": 0
       },
       {
-        "x": "helicopter",
-        "y": 158
+        "x": "Février",
+        "y": 1
       },
       {
-        "x": "boat",
-        "y": 218
+        "x": "Mars",
+        "y": 0
       },
       {
-        "x": "train",
-        "y": 254
+        "x": "Avril",
+        "y": 0
       },
       {
-        "x": "subway",
-        "y": 275
+        "x": "Mai",
+        "y": 0
       },
       {
-        "x": "bus",
-        "y": 260
+        "x": "Juin",
+        "y": 0
       },
       {
-        "x": "car",
-        "y": 284
+        "x": "Juillet",
+        "y": 0
       },
       {
-        "x": "moto",
-        "y": 193
+        "x": "Août",
+        "y": 0
       },
       {
-        "x": "bicycle",
-        "y": 154
+        "x": "Septembre",
+        "y": 0
       },
       {
-        "x": "horse",
-        "y": 86
-      },
-      {
-        "x": "skateboard",
-        "y": 182
-      },
-      {
-        "x": "others",
-        "y": 39
+        "x": "Octobre",
+        "y": 0
       }
     ]
   },
   {
-    "id": "us",
-    "color": "hsl(216, 70%, 50%)",
+    "id": "Intempéries - Fortes pluies",
     "data": [
       {
-        "x": "plane",
-        "y": 100
+        "x": "Janvier",
+        "y": 0
       },
       {
-        "x": "helicopter",
-        "y": 86
+        "x": "Février",
+        "y": 0
       },
       {
-        "x": "boat",
-        "y": 24
+        "x": "Mars",
+        "y": 0
       },
       {
-        "x": "train",
-        "y": 162
+        "x": "Avril",
+        "y": 0
       },
       {
-        "x": "subway",
-        "y": 210
+        "x": "Mai",
+        "y": 0
       },
       {
-        "x": "bus",
-        "y": 188
+        "x": "Juin",
+        "y": 50
       },
       {
-        "x": "car",
+        "x": "Juillet",
+        "y": 0
+      },
+      {
+        "x": "Août",
+        "y": 1
+      },
+      {
+        "x": "Septembre",
+        "y": 1
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Vent fort",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 7
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 0
+      },
+      {
+        "x": "Juillet",
+        "y": 1
+      },
+      {
+        "x": "Août",
+        "y": 5
+      },
+      {
+        "x": "Septembre",
+        "y": 0
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Végétation",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 1
+      },
+      {
+        "x": "Mai",
+        "y": 2
+      },
+      {
+        "x": "Juin",
+        "y": 1
+      },
+      {
+        "x": "Juillet",
         "y": 3
       },
       {
-        "x": "moto",
-        "y": 245
+        "x": "Août",
+        "y": 1
       },
       {
-        "x": "bicycle",
-        "y": 279
+        "x": "Septembre",
+        "y": 0
       },
       {
-        "x": "horse",
-        "y": 141
-      },
-      {
-        "x": "skateboard",
-        "y": 36
-      },
-      {
-        "x": "others",
-        "y": 105
+        "x": "Octobre",
+        "y": 12
       }
     ]
   },
   {
-    "id": "germany",
-    "color": "hsl(282, 70%, 50%)",
+    "id": "Intempéries - Orage / Grêle",
     "data": [
       {
-        "x": "plane",
-        "y": 72
+        "x": "Janvier",
+        "y": 0
       },
       {
-        "x": "helicopter",
-        "y": 98
+        "x": "Février",
+        "y": 0
       },
       {
-        "x": "boat",
-        "y": 278
+        "x": "Mars",
+        "y": 0
       },
       {
-        "x": "train",
-        "y": 241
+        "x": "Avril",
+        "y": 0
       },
       {
-        "x": "subway",
-        "y": 31
+        "x": "Mai",
+        "y": 1
       },
       {
-        "x": "bus",
-        "y": 42
+        "x": "Juin",
+        "y": 10
       },
       {
-        "x": "car",
-        "y": 59
+        "x": "Juillet",
+        "y": 2
       },
       {
-        "x": "moto",
-        "y": 197
+        "x": "Août",
+        "y": 2
       },
       {
-        "x": "bicycle",
-        "y": 214
+        "x": "Septembre",
+        "y": 2
       },
       {
-        "x": "horse",
-        "y": 254
-      },
-      {
-        "x": "skateboard",
-        "y": 241
-      },
-      {
-        "x": "others",
-        "y": 143
+        "x": "Octobre",
+        "y": 0
       }
     ]
   },
   {
-    "id": "norway",
-    "color": "hsl(356, 70%, 50%)",
+    "id": "Intempéries - Neige / congères",
     "data": [
       {
-        "x": "plane",
-        "y": 140
+        "x": "Janvier",
+        "y": 5
       },
       {
-        "x": "helicopter",
-        "y": 156
+        "x": "Février",
+        "y": 0
       },
       {
-        "x": "boat",
-        "y": 224
+        "x": "Mars",
+        "y": 0
       },
       {
-        "x": "train",
-        "y": 37
+        "x": "Avril",
+        "y": 0
       },
       {
-        "x": "subway",
-        "y": 219
+        "x": "Mai",
+        "y": 0
       },
       {
-        "x": "bus",
-        "y": 227
+        "x": "Juin",
+        "y": 0
       },
       {
-        "x": "car",
-        "y": 121
+        "x": "Juillet",
+        "y": 0
       },
       {
-        "x": "moto",
-        "y": 91
+        "x": "Août",
+        "y": 0
       },
       {
-        "x": "bicycle",
-        "y": 179
+        "x": "Septembre",
+        "y": 0
       },
       {
-        "x": "horse",
-        "y": 284
-      },
-      {
-        "x": "skateboard",
-        "y": 148
-      },
-      {
-        "x": "others",
-        "y": 160
+        "x": "Octobre",
+        "y": 0
       }
     ]
   }

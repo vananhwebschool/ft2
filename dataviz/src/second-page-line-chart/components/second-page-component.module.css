@@ -76,7 +76,14 @@
   margin-bottom: 15px;
 }
 
-.tousButton, .neigeButton, .orageButton, .vegetationButton, .ventFortButton, .fortePluieButton, .verglasButton, .diversButton, .brouillardButton, .forteChaleurButton {
+.secondIntemperieButtonSection {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.tousButtonClicked, .neigeButtonClicked, .orageButtonClicked, .vegetationButtonClicked, .ventFortButtonClicked, .fortePluieButtonClicked, .verglasButtonClicked, .diversButtonClicked, .brouillardButtonClicked, .tousButton, .neigeButton, .orageButton, .vegetationButton, .ventFortButton, .fortePluieButton, .verglasButton, .diversButton, .brouillardButton, .forteChaleurButtonClicked, .forteChaleurButton {
   width: 8.4375rem;
   height: 8.4375rem;
   flex-shrink: 0;
@@ -88,7 +95,7 @@
   cursor: pointer;
 }
 
-.tousButton_nameIntemp, .neigeButton_nameIntemp, .orageButton_nameIntemp, .vegetationButton_nameIntemp, .ventFortButton_nameIntemp, .fortePluieButton_nameIntemp, .verglasButton_nameIntemp, .diversButton_nameIntemp, .brouillardButton_nameIntemp, .forteChaleurButton_nameIntemp {
+.tousButtonClicked_nameIntemp, .neigeButtonClicked_nameIntemp, .orageButtonClicked_nameIntemp, .vegetationButtonClicked_nameIntemp, .ventFortButtonClicked_nameIntemp, .fortePluieButtonClicked_nameIntemp, .verglasButtonClicked_nameIntemp, .diversButtonClicked_nameIntemp, .brouillardButtonClicked_nameIntemp, .tousButton_nameIntemp, .neigeButton_nameIntemp, .orageButton_nameIntemp, .vegetationButton_nameIntemp, .ventFortButton_nameIntemp, .fortePluieButton_nameIntemp, .verglasButton_nameIntemp, .diversButton_nameIntemp, .brouillardButton_nameIntemp, .forteChaleurButtonClicked_nameIntemp, .forteChaleurButton_nameIntemp {
   flex-shrink: 0;
   text-align: center;
   font-size: 1rem;
@@ -99,13 +106,13 @@
 
 .forteChaleurButton {
   border: 4px solid #F00;
+  position: relative;
 }
 .forteChaleurButton_vector1 {
   width: 1.59375rem;
   height: 2.90625rem;
   flex-shrink: 0;
   fill: #F00;
-  position: relative;
   right: 1px;
 }
 .forteChaleurButton_vector2 {
@@ -115,11 +122,43 @@
   fill: #F00;
   z-index: 1;
   position: absolute;
-  top: 188px;
-  left: 314px;
+  top: 24px;
+  left: 39px;
 }
 .forteChaleurButton_nameIntemp {
   color: #F00;
+}
+
+.forteChaleurButtonClicked {
+  border: 4px solid #F00;
+  background-color: #F00;
+  position: relative;
+}
+.forteChaleurButtonClicked_vector1 {
+  width: 1.59375rem;
+  height: 2.90625rem;
+  flex-shrink: 0;
+  fill: none;
+  right: 1px;
+}
+.forteChaleurButtonClicked_vector1 path {
+  fill: #FFF;
+}
+.forteChaleurButtonClicked_vector2 {
+  width: 0.65625rem;
+  height: 1.3125rem;
+  flex-shrink: 0;
+  fill: white;
+  z-index: 1;
+  position: absolute;
+  top: 24px;
+  left: 39px;
+}
+.forteChaleurButtonClicked_vector2 path {
+  fill: #FFF;
+}
+.forteChaleurButtonClicked_nameIntemp {
+  color: white;
 }
 
 .brouillardButton {
@@ -219,6 +258,141 @@
 }
 .tousButton_nameIntemp {
   color: #6E1E78;
+}
+
+.brouillardButtonClicked {
+  border: 4px solid #BDBDBD;
+  background-color: #BDBDBD;
+}
+.brouillardButtonClicked svg, .brouillardButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.brouillardButtonClicked svg path, .brouillardButtonClicked img path {
+  fill: white;
+}
+.brouillardButtonClicked_nameIntemp {
+  color: white;
+}
+
+.diversButtonClicked {
+  border: 4px solid #FF5C00;
+  background-color: #FF5C00;
+}
+.diversButtonClicked svg, .diversButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.diversButtonClicked svg path, .diversButtonClicked img path {
+  fill: white;
+}
+.diversButtonClicked_nameIntemp {
+  color: white;
+}
+
+.verglasButtonClicked {
+  border: 4px solid #398CD0;
+  background-color: #398CD0;
+}
+.verglasButtonClicked svg, .verglasButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.verglasButtonClicked svg path, .verglasButtonClicked img path {
+  fill: white;
+}
+.verglasButtonClicked_nameIntemp {
+  color: white;
+}
+
+.fortePluieButtonClicked {
+  border: 4px solid #0000FF;
+  background-color: #0000FF;
+}
+.fortePluieButtonClicked svg, .fortePluieButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.fortePluieButtonClicked svg path, .fortePluieButtonClicked img path {
+  fill: white;
+}
+.fortePluieButtonClicked_nameIntemp {
+  color: white;
+}
+
+.ventFortButtonClicked {
+  border: 4px solid #69717F;
+  background-color: #69717F;
+}
+.ventFortButtonClicked svg, .ventFortButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.ventFortButtonClicked svg path, .ventFortButtonClicked img path {
+  fill: white;
+}
+.ventFortButtonClicked_nameIntemp {
+  color: white;
+}
+
+.vegetationButtonClicked {
+  border: 4px solid #31AA35;
+  background-color: #31AA35;
+}
+.vegetationButtonClicked svg, .vegetationButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.vegetationButtonClicked svg path, .vegetationButtonClicked img path {
+  fill: white;
+}
+.vegetationButtonClicked_nameIntemp {
+  color: white;
+}
+
+.orageButtonClicked {
+  border: 4px solid #FFB82B;
+  background-color: #FFB82B;
+}
+.orageButtonClicked svg, .orageButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.orageButtonClicked svg path, .orageButtonClicked img path {
+  fill: white;
+}
+.orageButtonClicked_nameIntemp {
+  color: white;
+}
+
+.neigeButtonClicked {
+  border: 4px solid #A4D8EB;
+  background-color: #A4D8EB;
+}
+.neigeButtonClicked svg, .neigeButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.neigeButtonClicked svg path, .neigeButtonClicked img path {
+  fill: white;
+}
+.neigeButtonClicked_nameIntemp {
+  color: white;
+}
+
+.tousButtonClicked {
+  border: 4px solid #6E1E78;
+  background-color: #6E1E78;
+}
+.tousButtonClicked svg, .tousButtonClicked img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.tousButtonClicked svg path, .tousButtonClicked img path {
+  fill: white;
+}
+.tousButtonClicked_nameIntemp {
+  color: white;
 }
 
 /*# sourceMappingURL=second-page-component.module.css.map */

@@ -67,6 +67,13 @@ $tousColor: #6E1E78;
   margin-bottom: 15px;
 }
 
+.secondIntemperieButtonSection {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
 %intemperieButtonCommon {
   width: 8.4375rem;
   height: 8.4375rem;
@@ -97,7 +104,6 @@ $tousColor: #6E1E78;
     height: 2.90625rem;
     flex-shrink: 0;
     fill: $intempColor;
-    position: relative;
     right: 1px;
   }
 
@@ -108,8 +114,8 @@ $tousColor: #6E1E78;
     fill: $intempColor;
     z-index: 1;
     position: absolute;
-    top: 188px;
-    left: 314px;
+    top: 24px;
+    left: 39px;
   }
 
   &_nameIntemp {
@@ -120,6 +126,49 @@ $tousColor: #6E1E78;
 
 .forteChaleurButton {
   @include intemperieButtonTwoVectors($forteChaleurColor);
+  position: relative;
+}
+
+@mixin intemperieButtonTwoVectorsClicked($intempColor) {
+  @extend %intemperieButtonCommon;
+  border: 4px solid $intempColor;
+  background-color: $intempColor;
+
+  &_vector1 {
+    width: 1.59375rem;
+    height: 2.90625rem;
+    flex-shrink: 0;
+    fill: none;
+    right: 1px;
+
+    path {
+      fill: #FFF;
+    }
+  }
+
+  &_vector2 {
+    width: 0.65625rem;
+    height: 1.3125rem;
+    flex-shrink: 0;
+    fill: white;
+    z-index: 1;
+    position: absolute;
+    top: 24px;
+    left: 39px;
+
+    path {
+      fill: #FFF;
+    }
+  }
+
+  &_nameIntemp {
+    @extend %intempButtonNameCommon;
+    color: white;
+  }
+}
+.forteChaleurButtonClicked {
+  @include intemperieButtonTwoVectorsClicked($forteChaleurColor);
+  position: relative;
 }
 
 @mixin intemperieButtonOneVector($intempColor) {
@@ -173,3 +222,59 @@ $tousColor: #6E1E78;
   @include intemperieButtonOneVector($tousColor);
 }
 
+
+@mixin intemperieButtonOneVectorClicked($intempColor) {
+  @extend %intemperieButtonCommon;
+  border: 4px solid $intempColor;
+  background-color: $intempColor ;
+
+  svg,img {
+    width: 2.8125rem;
+    height: 2.8125rem;
+
+    path {
+      fill: white;
+    }
+  }
+
+  &_nameIntemp {
+    @extend %intempButtonNameCommon;
+    color: white;
+  }
+}
+
+.brouillardButtonClicked {
+  @include intemperieButtonOneVectorClicked($brouillardColor);
+}
+
+.diversButtonClicked {
+  @include intemperieButtonOneVectorClicked($diversColor);
+}
+
+.verglasButtonClicked {
+  @include intemperieButtonOneVectorClicked($verglasColor);
+}
+
+.fortePluieButtonClicked {
+  @include intemperieButtonOneVectorClicked($fortePluieColor);
+}
+
+.ventFortButtonClicked {
+  @include intemperieButtonOneVectorClicked($ventFortColor);
+}
+
+.vegetationButtonClicked {
+  @include intemperieButtonOneVectorClicked($vegetationColor);
+}
+
+.orageButtonClicked {
+  @include intemperieButtonOneVectorClicked($orageColor);
+}
+
+.neigeButtonClicked {
+  @include intemperieButtonOneVectorClicked($neigeColor);
+}
+
+.tousButtonClicked {
+  @include intemperieButtonOneVectorClicked($tousColor);
+}
