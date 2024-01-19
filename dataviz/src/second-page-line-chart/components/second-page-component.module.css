@@ -88,7 +88,7 @@
   margin-bottom: 3rem;
 }
 
-.tousButtonClicked, .neigeButtonClicked, .orageButtonClicked, .vegetationButtonClicked, .ventFortButtonClicked, .fortePluieButtonClicked, .verglasButtonClicked, .diversButtonClicked, .brouillardButtonClicked, .tousButton, .neigeButton, .orageButton, .vegetationButton, .ventFortButton, .fortePluieButton, .verglasButton, .diversButton, .brouillardButton, .forteChaleurButtonClicked {
+.tousButtonClicked, .neigeButtonClicked, .orageButtonClicked, .vegetationButtonClicked, .ventFortButtonClicked, .fortePluieButtonClicked, .verglasButtonClicked, .diversButtonClicked, .brouillardButtonClicked, .tousButton, .neigeButton, .orageButton, .vegetationButton, .ventFortButton, .fortePluieButton, .verglasButton, .diversButton, .brouillardButton {
   width: 8.4375rem;
   height: 8.4375rem;
   flex-shrink: 0;
@@ -100,7 +100,7 @@
   cursor: pointer;
 }
 
-.tousButtonClicked_nameIntemp, .neigeButtonClicked_nameIntemp, .orageButtonClicked_nameIntemp, .vegetationButtonClicked_nameIntemp, .ventFortButtonClicked_nameIntemp, .fortePluieButtonClicked_nameIntemp, .verglasButtonClicked_nameIntemp, .diversButtonClicked_nameIntemp, .brouillardButtonClicked_nameIntemp, .tousButton_nameIntemp, .neigeButton_nameIntemp, .orageButton_nameIntemp, .vegetationButton_nameIntemp, .ventFortButton_nameIntemp, .fortePluieButton_nameIntemp, .verglasButton_nameIntemp, .diversButton_nameIntemp, .brouillardButton_nameIntemp, .forteChaleurButtonClicked_nameIntemp {
+.tousButtonClicked_nameIntemp, .neigeButtonClicked_nameIntemp, .orageButtonClicked_nameIntemp, .vegetationButtonClicked_nameIntemp, .ventFortButtonClicked_nameIntemp, .fortePluieButtonClicked_nameIntemp, .verglasButtonClicked_nameIntemp, .diversButtonClicked_nameIntemp, .brouillardButtonClicked_nameIntemp, .tousButton_nameIntemp, .neigeButton_nameIntemp, .orageButton_nameIntemp, .vegetationButton_nameIntemp, .ventFortButton_nameIntemp, .fortePluieButton_nameIntemp, .verglasButton_nameIntemp, .diversButton_nameIntemp, .brouillardButton_nameIntemp {
   flex-shrink: 0;
   text-align: center;
   font-size: 1rem;
@@ -110,35 +110,10 @@
 }
 
 .forteChaleurButtonClicked {
-  border: 4px solid #F00;
-  background-color: #F00;
-  position: relative;
+  fill: red;
 }
-.forteChaleurButtonClicked_vector1 {
-  width: 1.59375rem;
-  height: 2.90625rem;
-  flex-shrink: 0;
-  fill: none;
-  right: 1px;
-}
-.forteChaleurButtonClicked_vector1 path {
-  fill: #FFF;
-}
-.forteChaleurButtonClicked_vector2 {
-  width: 0.65625rem;
-  height: 1.3125rem;
-  flex-shrink: 0;
+.forteChaleurButtonClicked text, .forteChaleurButtonClicked path {
   fill: white;
-  z-index: 1;
-  position: absolute;
-  top: 24px;
-  left: 39px;
-}
-.forteChaleurButtonClicked_vector2 path {
-  fill: #FFF;
-}
-.forteChaleurButtonClicked_nameIntemp {
-  color: white;
 }
 
 .brouillardButton {

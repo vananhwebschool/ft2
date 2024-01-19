@@ -99,47 +99,12 @@ $tousColor: #6E1E78;
   line-height: normal;
 }
 
-@mixin intemperieButtonTwoVectorsClicked($intempColor) {
-  @extend %intemperieButtonCommon;
-  border: 4px solid $intempColor;
-  background-color: $intempColor;
-
-  &_vector1 {
-    width: 1.59375rem;
-    height: 2.90625rem;
-    flex-shrink: 0;
-    fill: none;
-    right: 1px;
-
-    path {
-      fill: #FFF;
-    }
-  }
-
-  &_vector2 {
-    width: 0.65625rem;
-    height: 1.3125rem;
-    flex-shrink: 0;
-    fill: white;
-    z-index: 1;
-    position: absolute;
-    top: 24px;
-    left: 39px;
-
-    path {
-      fill: #FFF;
-    }
-  }
-
-  &_nameIntemp {
-    @extend %intempButtonNameCommon;
-    color: white;
-  }
-}
-
 .forteChaleurButtonClicked {
-  @include intemperieButtonTwoVectorsClicked($forteChaleurColor);
-  position: relative;
+  fill: red;
+
+  text, path {
+    fill: white;
+  }
 }
 
 @mixin intemperieButtonOneVector($intempColor) {

@@ -7,7 +7,7 @@ export default function IntemperieButton({oneVector, name, percentage, cssStyleN
     let styleNameButton = styleButton + "_nameIntemp";
     if (oneVector) {
         return (
-                    <svg onClick={e => {
+                    <svg className={styles[styleButton]} style={{cursor: "pointer"}} onClick={e => {
                         e.stopPropagation();
                         onShow();
                     }} width="93" height="87" viewBox="0 0 135 135" fill="none" xmlns="http://www.w3.org/2000/svg">
