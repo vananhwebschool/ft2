@@ -4,15 +4,7 @@ import dataset1 from "../data/dataset1.json"
 import {useState} from "react";
 import styles from "./components/second-page-component.module.css";
 import IntemperieButton from "./components/IntemperieButton.jsx";
-import React from 'react';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Tooltip,
-} from 'chart.js';
+import {CategoryScale, Chart as ChartJS, LinearScale, LineElement, PointElement, Tooltip,} from 'chart.js';
 import {Line} from 'react-chartjs-2';
 
 ChartJS.register(
@@ -204,7 +196,7 @@ export default function SecondPage() {
                     </IntemperieButton>
                 </div>
             </div>
-            <div style={{display: "flex", justifyContent: "center", height:"40rem"}}>
+            <div style={{display: "flex", justifyContent: "center", height: "40rem"}}>
                 <Line options={options} data={chartData}/>
             </div>
         </>
@@ -218,6 +210,9 @@ function getDataFilteredAxeSudEstParisGrenobleOD() {
         .filter(e => e.OD === "Grenoble BV - Paris-Gare-de-Lyon BV" || e.OD === "Paris-Gare-de-Lyon BV - Grenoble BV");
 }
 
+function getDataFiltered() {
+
+}
 
 /* params: name of intemperie
 output: {label: nom d'intemperie1,
@@ -372,5 +367,28 @@ function getSchemeColor(data) {
     return colorsList[intemperiesClimatiquesList.indexOf(data)];
 }
 
+// get distinct OD from original dataset
+function getDistinctOD() {
+    const odList = new Set();
+    dataset1.filter((e => e.Axe === "Axe Sud Est"))
+        .map(e => odList.add(e.OD));
+    return [...odList];
+}
 
+// get one itinerary selected for each two-way trip
+function generateItineraryList(originalList) {
+    const uniqueRoutes = {};
+
+    originalList.forEach(route => {
+        const stations = route.split(" BV - ");
+        const reversedRoute = stations.reverse().join(" BV - ");
+        if (!uniqueRoutes[reversedRoute]) {
+            uniqueRoutes[route] = true;
+        }
+    });
+
+    const result = [];
+    Object.keys(uniqueRoutes).map(route => result.push(route));
+    return result;
+}
 
