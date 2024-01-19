@@ -14,6 +14,7 @@ $tousColor: #6E1E78;
   width: 110rem;
   margin-top: 5rem;
 }
+
 .logoTextBox {
   display: flex;
 
@@ -98,40 +99,6 @@ $tousColor: #6E1E78;
   line-height: normal;
 }
 
-@mixin intemperieButtonTwoVectors($intempColor) {
-  @extend %intemperieButtonCommon;
-  border: 4px solid $intempColor;
-
-  &_vector1 {
-    width: 1.59375rem;
-    height: 2.90625rem;
-    flex-shrink: 0;
-    fill: $intempColor;
-    right: 1px;
-  }
-
-  &_vector2 {
-    width: 0.65625rem;
-    height: 1.3125rem;
-    flex-shrink: 0;
-    fill: $intempColor;
-    z-index: 1;
-    position: absolute;
-    top: 20px;
-    left: 35px
-  }
-
-  &_nameIntemp {
-    @extend %intempButtonNameCommon;
-    color: $intempColor;
-  }
-}
-
-//.forteChaleurButton {
-//  @include intemperieButtonTwoVectors($forteChaleurColor);
-//  position: relative;
-//}
-
 @mixin intemperieButtonTwoVectorsClicked($intempColor) {
   @extend %intemperieButtonCommon;
   border: 4px solid $intempColor;
@@ -169,6 +136,7 @@ $tousColor: #6E1E78;
     color: white;
   }
 }
+
 .forteChaleurButtonClicked {
   @include intemperieButtonTwoVectorsClicked($forteChaleurColor);
   position: relative;
@@ -178,7 +146,7 @@ $tousColor: #6E1E78;
   @extend %intemperieButtonCommon;
   border: 4px solid $intempColor;
 
-  svg,img {
+  svg, img {
     width: 2.8125rem;
     height: 2.8125rem;
   }
@@ -229,9 +197,9 @@ $tousColor: #6E1E78;
 @mixin intemperieButtonOneVectorClicked($intempColor) {
   @extend %intemperieButtonCommon;
   border: 4px solid $intempColor;
-  background-color: $intempColor ;
+  background-color: $intempColor;
 
-  svg,img {
+  svg, img {
     width: 2.8125rem;
     height: 2.8125rem;
 
