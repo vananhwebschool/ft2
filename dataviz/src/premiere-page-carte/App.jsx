@@ -1,6 +1,6 @@
 import "./App.css";
-import Map from "./Map.jsx";
-
+import Map from "./Carte.jsx";
+// import Carte from "./Carte.jsx";
 function App() {
     const styles = {
         partieBasseDroite: {
@@ -36,7 +36,7 @@ function App() {
             margin: "0px",
           },
           rectangleLigne2: {
-            width: "101px",
+            width: "152px",
             height: "103px",
             backgroundColor: "#6E1E78",
             borderRadius: "4px",
@@ -68,7 +68,6 @@ function App() {
           <p style={styles.texte4}>Données générales</p>
         </div>
         <div style={styles.ligne2}>
-          <div style={styles.rectangleLigne2}></div>
           <div style={styles.rectangleLigne2}></div>
           <div style={styles.rectangleLigne2}></div>
         </div>

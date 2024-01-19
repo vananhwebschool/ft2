@@ -17,7 +17,7 @@ export default function Component1() {
       justifyContent: "space-between",
       marginLeft: "50px",
       paddingTop: "50px",
-      marginRight: "150px",
+      marginRight: "50px",
     },
     partieGauche: {
       display: "flex",
@@ -59,10 +59,11 @@ export default function Component1() {
       top: "50px",
       left: "5px",
     },
+    
     rectangleAxe: {
       backgroundColor: "#6E1E78",
-      width: "165px",
-      height: "40px",
+      width: "200px",
+      height: "43px",
       padding: "10px 20px 10px 20px",
       flexDirection: "column",
       justifyContent: "center",
@@ -81,8 +82,8 @@ export default function Component1() {
     },
     rectangleNom: {
       backgroundColor: "#6E1E78",
-      width: "165px",
-      height: "60px",
+      width: "200px",
+      height: "55px",
       padding: "10px 20px 10px 20px",
       flexDirection: "column",
       justifyContent: "center",
@@ -121,7 +122,7 @@ export default function Component1() {
       margin: "0px",
     },
     rectangleLigne2: {
-      width: "101px",
+      width: "152px",
       height: "103px",
       backgroundColor: "#6E1E78",
       borderRadius: "4px",
@@ -213,8 +214,6 @@ export default function Component1() {
               <p style={styles.texte3}>Axe</p>
             </div>
             <div style={styles.rectangleNom}>
-              <img src={VectorG} style={styles.vecteurGauche}></img>
-              <img src={VectorD}></img>
             </div>
           </div>
         </div>
