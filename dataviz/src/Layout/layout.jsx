@@ -1,8 +1,6 @@
 import logo from "../assets/logo.svg";
-import VectorG from "../assets/VectorG.svg";
-import VectorD from "../assets/VectorD.svg";
 import { Outlet } from "react-router-dom";
-
+import "./layout.css"
 export default function Component1() {
   const styles = {
     contenus: {
@@ -10,14 +8,16 @@ export default function Component1() {
       flexDirection: "column",
       height: "905px",
       backgroundColor: "white",
-      margin: "20px",
+      marginTop: "1rem",
+      marginRight: "1rem",
+      marginLeft: "1rem",
     },
     partieHaute: {
       display: "flex",
       justifyContent: "space-between",
       marginLeft: "50px",
       paddingTop: "50px",
-      marginRight: "50px",
+      marginRight: "150px",
     },
     partieGauche: {
       display: "flex",
@@ -59,11 +59,10 @@ export default function Component1() {
       top: "50px",
       left: "5px",
     },
-    
     rectangleAxe: {
       backgroundColor: "#6E1E78",
-      width: "200px",
-      height: "43px",
+      width: "165px",
+      height: "40px",
       padding: "10px 20px 10px 20px",
       flexDirection: "column",
       justifyContent: "center",
@@ -82,8 +81,8 @@ export default function Component1() {
     },
     rectangleNom: {
       backgroundColor: "#6E1E78",
-      width: "200px",
-      height: "55px",
+      width: "165px",
+      height: "60px",
       padding: "10px 20px 10px 20px",
       flexDirection: "column",
       justifyContent: "center",
@@ -122,7 +121,7 @@ export default function Component1() {
       margin: "0px",
     },
     rectangleLigne2: {
-      width: "152px",
+      width: "101px",
       height: "103px",
       backgroundColor: "#6E1E78",
       borderRadius: "4px",
@@ -147,8 +146,8 @@ export default function Component1() {
     },
     partieFooter: {
       backgroundColor: "white",
-      width: "1620px",
-      height: "55px",
+      width: "148rem",
+      height: "5rem",
       display: "flex",
     },
     partieGauche1: {
@@ -209,39 +208,28 @@ export default function Component1() {
               </div>
             </div>
           </div>
-          <div style={styles.partieDroite}>
-            <div style={styles.rectangleAxe}>
-              <p style={styles.texte3}>Axe</p>
-            </div>
-            <div style={styles.rectangleNom}>
-            </div>
-          </div>
         </div>
         <div style={styles.partieBasse}>
           <Outlet></Outlet>
         </div>
-        <div style={styles.partieFooter}>
-          <div style={styles.partieGauche1}>
-            <div style={styles.bloc1}>
-              <p style={styles.textebloc}>2023</p>
+        <div className="partieFooter">
+          <div className="footerSection">
+            <div className="footerLeftSmallBox">
+              2023
             </div>
-            <div style={styles.bloc2}>
-              <p style={styles.textebloc}>Map</p>
+            <div className="footerLeftBigBox">
+              Map
             </div>
-            <div style={styles.bloc3}>
-              <p style={styles.textebloc}>Graphique</p>
+            <div className="footerLeftBigBox">
+              Graphique
             </div>
-            <div style={styles.bloc3}>
-              <p style={styles.textebloc}>Favoris</p>
+            <div className="footerLeftBigBox">
+              Résumé
             </div>
           </div>
-          <div style={styles.partieMilieu}>
-            <div style={styles.bloc4}></div>
-          </div>
-          <div style={styles.partieDroite1}>
-            <div style={styles.bloc5}>
-              <p style={styles.textebloc}>Partager</p>
-            </div>
+          <div className="footerGapBox"></div>
+          <div className="footerRightBox">
+            Partager
           </div>
         </div>
       </div>

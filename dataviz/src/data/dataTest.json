@@ -1,0 +1,363 @@
+[
+  {
+    "id": "Intempéries - Brouillard",
+    "color": "hsl(268, 70%, 50%)",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 1
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 0
+      },
+      {
+        "x": "Juillet",
+        "y": 0
+      },
+      {
+        "x": "Août",
+        "y": 0
+      },
+      {
+        "x": "Septembre",
+        "y": 0
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Forte chaleur",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 1
+      },
+      {
+        "x": "Juillet",
+        "y": 0
+      },
+      {
+        "x": "Août",
+        "y": 2
+      },
+      {
+        "x": "Septembre",
+        "y": 2
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Givre / Verglas",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 1
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 0
+      },
+      {
+        "x": "Juillet",
+        "y": 0
+      },
+      {
+        "x": "Août",
+        "y": 0
+      },
+      {
+        "x": "Septembre",
+        "y": 0
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Fortes pluies",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 50
+      },
+      {
+        "x": "Juillet",
+        "y": 0
+      },
+      {
+        "x": "Août",
+        "y": 1
+      },
+      {
+        "x": "Septembre",
+        "y": 1
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Vent fort",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 7
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 0
+      },
+      {
+        "x": "Juillet",
+        "y": 1
+      },
+      {
+        "x": "Août",
+        "y": 5
+      },
+      {
+        "x": "Septembre",
+        "y": 0
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Végétation",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 1
+      },
+      {
+        "x": "Mai",
+        "y": 2
+      },
+      {
+        "x": "Juin",
+        "y": 1
+      },
+      {
+        "x": "Juillet",
+        "y": 3
+      },
+      {
+        "x": "Août",
+        "y": 1
+      },
+      {
+        "x": "Septembre",
+        "y": 0
+      },
+      {
+        "x": "Octobre",
+        "y": 12
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Orage / Grêle",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 0
+      },
+      {
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 1
+      },
+      {
+        "x": "Juin",
+        "y": 10
+      },
+      {
+        "x": "Juillet",
+        "y": 2
+      },
+      {
+        "x": "Août",
+        "y": 2
+      },
+      {
+        "x": "Septembre",
+        "y": 2
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  },
+  {
+    "id": "Intempéries - Neige / congères",
+    "data": [
+      {
+        "x": "Janvier",
+        "y": 5
+      },
+      {
+        "x": "Février",
+        "y": 0
+      },
+      {
+        "x": "Mars",
+        "y": 0
+      },
+      {
+        "x": "Avril",
+        "y": 0
+      },
+      {
+        "x": "Mai",
+        "y": 0
+      },
+      {
+        "x": "Juin",
+        "y": 0
+      },
+      {
+        "x": "Juillet",
+        "y": 0
+      },
+      {
+        "x": "Août",
+        "y": 0
+      },
+      {
+        "x": "Septembre",
+        "y": 0
+      },
+      {
+        "x": "Octobre",
+        "y": 0
+      }
+    ]
+  }
+]

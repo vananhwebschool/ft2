@@ -1,0 +1,36 @@
+@use 'commonProperties.module' as cp;
+
+$primaryColor: #6E1E78;
+
+.textSmall {
+  @extend %smallText;
+}
+
+.boldText {
+  @extend %textBoxCommon;
+  font-size: 3.125rem;;
+  font-weight: 700;
+}
+
+.boxGroup {
+  display: flex;
+}
+.commonBoxOne {
+  @include cp.commonBox(19.1875rem, 2.25rem);
+  @extend %smallText;
+  padding: 0.25rem 0;
+}
+
+.commonBoxTwo {
+  @include cp.commonBox(9.5rem, 9.0625rem);
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.commonBoxThree {
+  @include cp.commonBox(6.3125rem, 6.4375rem)
+}
+
+
+

@@ -1,0 +1,45 @@
+.partieFooter {
+    background-color: white;
+    width: 148rem;
+    height: 5rem;
+    display: flex;
+}
+.footerSection {
+    display: flex;
+}
+.footerLeftSmallBox {
+    background-color: rgb(110, 30, 120);
+    color: white;
+    width: 8.125rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerLeftBigBox {
+    background-color: rgb(110, 30, 120);
+    color: white;
+    width: 12.5rem;
+    margin-right: 0.5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.footerGapBox {
+    background-color: rgb(110, 30, 120);
+    width: 89.5rem;
+}
+
+.footerRightBox {
+    width: 10.25rem;
+    background-color: rgb(110, 30, 120);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
