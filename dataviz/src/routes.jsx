@@ -1,4 +1,4 @@
-import App from "./App";
+import App from "./premiere-page-carte/App.jsx";
 import Layout from "./Layout/layout"
 export default [
   {
