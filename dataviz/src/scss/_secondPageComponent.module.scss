@@ -127,10 +127,10 @@ $tousColor: #6E1E78;
   }
 }
 
-.forteChaleurButton {
-  @include intemperieButtonTwoVectors($forteChaleurColor);
-  position: relative;
-}
+//.forteChaleurButton {
+//  @include intemperieButtonTwoVectors($forteChaleurColor);
+//  position: relative;
+//}
 
 @mixin intemperieButtonTwoVectorsClicked($intempColor) {
   @extend %intemperieButtonCommon;

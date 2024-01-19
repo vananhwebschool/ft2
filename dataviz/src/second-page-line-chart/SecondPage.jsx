@@ -1,5 +1,3 @@
-import SncfLogo from "./components/SncfLogo.jsx";
-import OdSelector from "./components/OdSelector.jsx";
 import dataset1 from "../data/dataset1.json"
 import {useState} from "react";
 import styles from "./components/second-page-component.module.css";
