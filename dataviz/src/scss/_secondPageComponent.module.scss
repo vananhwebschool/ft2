@@ -10,7 +10,10 @@ $vegetationColor: #31AA35;
 $orageColor: #FFB82B;
 $neigeColor: #A4D8EB;
 $tousColor: #6E1E78;
-
+.sectionButtonsAndChart {
+  width: 110rem;
+  margin-top: 5rem;
+}
 .logoTextBox {
   display: flex;
 
@@ -71,7 +74,7 @@ $tousColor: #6E1E78;
   display: flex;
   justify-content: space-evenly;
   width: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 3rem;
 }
 
 %intemperieButtonCommon {
@@ -114,8 +117,8 @@ $tousColor: #6E1E78;
     fill: $intempColor;
     z-index: 1;
     position: absolute;
-    top: 24px;
-    left: 39px;
+    top: 20px;
+    left: 35px
   }
 
   &_nameIntemp {

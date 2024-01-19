@@ -15,13 +15,6 @@ ChartJS.register(
     Tooltip,
 );
 export default function SecondPage() {
-    const styleDiv = {
-        margin: "0 auto",
-        paddingTop: "2rem",
-        paddingBottom: "5rem",
-        display: "flex",
-        justifyContent: "space-between"
-    };
     const intemperiesClimatiquesList = ["Intempéries - Brouillard",
         "Intempéries - Forte chaleur",
         "Intempéries - Givre / Verglas",
@@ -88,11 +81,7 @@ export default function SecondPage() {
     }
 
     return (
-        <>
-            <div style={styleDiv}>
-                <SncfLogo/>
-                <OdSelector/>
-            </div>
+        <div className={styles.sectionButtonsAndChart}>
             <div>
                 <div className={styles.firstIntemperieButtonSection}>
                     <IntemperieButton oneVector={false} name={"Brouillard"} percentage={"5%"}
@@ -199,7 +188,7 @@ export default function SecondPage() {
             <div style={{display: "flex", justifyContent: "center", height: "40rem"}}>
                 <Line options={options} data={chartData}/>
             </div>
-        </>
+        </div>
 
     )
 }

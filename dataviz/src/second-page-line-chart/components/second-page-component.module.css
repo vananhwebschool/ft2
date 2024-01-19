@@ -10,6 +10,11 @@
   font-weight: 500;
 }
 
+.sectionButtonsAndChart {
+  width: 110rem;
+  margin-top: 5rem;
+}
+
 .logoTextBox {
   display: flex;
 }
@@ -80,7 +85,7 @@
   display: flex;
   justify-content: space-evenly;
   width: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 3rem;
 }
 
 .tousButtonClicked, .neigeButtonClicked, .orageButtonClicked, .vegetationButtonClicked, .ventFortButtonClicked, .fortePluieButtonClicked, .verglasButtonClicked, .diversButtonClicked, .brouillardButtonClicked, .tousButton, .neigeButton, .orageButton, .vegetationButton, .ventFortButton, .fortePluieButton, .verglasButton, .diversButton, .brouillardButton, .forteChaleurButtonClicked, .forteChaleurButton {
@@ -122,8 +127,8 @@
   fill: #F00;
   z-index: 1;
   position: absolute;
-  top: 24px;
-  left: 39px;
+  top: 20px;
+  left: 35px;
 }
 .forteChaleurButton_nameIntemp {
   color: #F00;
