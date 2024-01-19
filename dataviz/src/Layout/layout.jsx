@@ -1,6 +1,7 @@
-import logo from "../../assets/logo.svg";
-import VectorG from "../../assets/VectorG.svg";
-import VectorD from "../../assets/VectorD.svg";
+import logo from "../assets/logo.svg";
+import VectorG from "../assets/VectorG.svg";
+import VectorD from "../assets/VectorD.svg";
+import { Outlet } from "react-router-dom";
 
 export default function Component1() {
   const styles = {
@@ -9,14 +10,14 @@ export default function Component1() {
       flexDirection: "column",
       height: "905px",
       backgroundColor: "white",
-      padding: "20px",
+      margin: "20px",
     },
     partieHaute: {
       display: "flex",
       justifyContent: "space-between",
-      paddingLeft: "50px",
+      marginLeft: "50px",
       paddingTop: "50px",
-      paddingRight: "150px",
+      marginRight: "150px",
     },
     partieGauche: {
       display: "flex",
@@ -26,7 +27,7 @@ export default function Component1() {
       width: "165px",
       height: "100px",
       paddingTop: "10px",
-      paddingLeft: "30px",
+      marginLeft: "30px",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
@@ -87,29 +88,17 @@ export default function Component1() {
       justifyContent: "center",
       alignItems: "center",
       borderRadius: "4px",
-      paddingTop: "5px",
+      marginTop: "5px",
     },
     vecteurGauche: {
-      paddingTop: "10px",
-      paddingRight: "96px",
+      marginTop: "10px",
+      marginRight: "96px",
     },
     partieBasse: {
-      paddingLeft: "60px",
+      marginLeft: "60px",
       height: "36px",
       flex: 1,
       display: "flex"
-    },
-    partieBasseDroite: {
-        paddingLeft: "60px",
-        height: "36px",
-        flex: 1,
-    },
-    partieBasseGauche: {
-        paddingLeft: "60px",
-        height: "36px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: ""
     },
     ligne1: {
       backgroundColor: "#6E1E78",
@@ -141,7 +130,7 @@ export default function Component1() {
       display: "flex",
       justifyContent: "space-between",
       width: "307px",
-      paddingTop: "5px",
+      marginTop: "5px",
     },
     rectangleLigne3: {
       width: "152px",
@@ -153,7 +142,7 @@ export default function Component1() {
       display: "flex",
       justifyContent: "space-between",
       width: "307px",
-      paddingTop: "5px",
+      marginTop: "5px",
     },
     partieFooter: {
       backgroundColor: "white",
@@ -167,7 +156,7 @@ export default function Component1() {
       height: "60px",
       display: "flex",
       justifyContent: "space-between",
-      paddingLeft: "2px",
+      marginLeft: "2px",
     },
     bloc1: {
       backgroundColor: "#6E1E78",
@@ -197,13 +186,13 @@ export default function Component1() {
       backgroundColor: "#6E1E78",
       width: "750px",
       height: "60px",
-      paddingLeft: "2px",
+      marginLeft: "2px",
     },
     partieDroite1: {
       backgroundColor: "#6E1E78",
       width: "126px",
       height: "60px",
-      paddingLeft: "2px",
+      marginLeft: "2px",
     },
   };
   return (
@@ -230,23 +219,7 @@ export default function Component1() {
           </div>
         </div>
         <div style={styles.partieBasse}>
-          <div style={styles.partieBasseGauche}>
-            <div style={styles.ligne1}>
-              <p style={styles.texte4}>Données générales</p>
-            </div>
-            <div style={styles.ligne2}>
-              <div style={styles.rectangleLigne2}></div>
-              <div style={styles.rectangleLigne2}></div>
-              <div style={styles.rectangleLigne2}></div>
-            </div>
-            <div style={styles.ligne3}>
-              <div style={styles.rectangleLigne3}></div>
-              <div style={styles.rectangleLigne3}></div>
-            </div>
-          </div>
-          <div style={styles.partieBasseDroite}>
-            <p>TEST</p>
-          </div>
+          <Outlet></Outlet>
         </div>
         <div style={styles.partieFooter}>
           <div style={styles.partieGauche1}>
