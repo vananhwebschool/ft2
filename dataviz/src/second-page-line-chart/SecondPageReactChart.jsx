@@ -2,16 +2,16 @@ import dataset1 from "../data/dataset1.json"
 import {useState} from "react";
 import styles from "./components/second-page-component.module.css";
 import IntemperieButton from "./components/IntemperieButton.jsx";
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend, ResponsiveContainer
-} from "recharts";
+import {CategoryScale, Chart as ChartJS, LinearScale, LineElement, PointElement, Tooltip,} from 'chart.js';
+import {Line} from 'react-chartjs-2';
 
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Tooltip,
+);
 export default function SecondPage() {
     const intemperiesClimatiquesList = ["Intempéries - Brouillard",
         "Intempéries - Forte chaleur",
@@ -22,7 +22,7 @@ export default function SecondPage() {
         "Intempéries - Orage / Grêle",
         "Intempéries - Neige / congères"];
 
-    const initialChartData = getChartDataFilteredByIntemperieNew(intemperiesClimatiquesList);
+    const initialChartData = getChartDataFilteredForMultipleIntemperiesNew(intemperiesClimatiquesList);
     const [chartData, setChartData] = useState(initialChartData);
     const [activeButtons, setActiveButtons] = useState(["tous"]);
     const options = {
@@ -50,21 +50,21 @@ export default function SecondPage() {
             setActiveButtons(modifiedList);
             console.log("modifiedList");
             console.log(modifiedList)
-            setChartData(getChartDataFilteredByIntemperieNew(modifiedList));
+            setChartData(getChartDataFilteredForMultipleIntemperiesNew(modifiedList));
         }
     }
 
     function modifyActiveButtonsListWhenClickTous() {
         if (activeButtons === undefined) {
             setActiveButtons(["tous"]);
-            setChartData(getChartDataFilteredByIntemperieNew(intemperiesClimatiquesList));
+            setChartData(getChartDataFilteredForMultipleIntemperiesNew(intemperiesClimatiquesList));
         } else {
             let modifiedList;
             if (activeButtons.includes("tous") && activeButtons.length === 1) {
                 modifiedList = ["tous"];
             } else {
                 modifiedList = ["tous"];
-                setChartData(getChartDataFilteredByIntemperieNew(intemperiesClimatiquesList));
+                setChartData(getChartDataFilteredForMultipleIntemperiesNew(intemperiesClimatiquesList));
             }
             setActiveButtons(modifiedList);
         }
@@ -77,21 +77,6 @@ export default function SecondPage() {
             return activeButtons.includes(buttonId);
         }
     }
-
-    const CustomTooltip = ({ active, payload, label }) => {
-        if (active && payload && payload.length) {
-            console.log("payload");
-            console.log(payload.valueOf());
-            return (
-                <div className="custom-tooltip">
-                    <p className="label">{`${label} : ${payload[0].value}`}</p>
-                    <p className="desc">Anything you want can be displayed here.</p>
-                </div>
-            );
-        }
-
-        return null;
-    };
 
     return (
         <div className={styles.sectionButtonsAndChart}>
@@ -198,29 +183,9 @@ export default function SecondPage() {
                     </IntemperieButton>
                 </div>
             </div>
-            <ResponsiveContainer width="100%" height="60%">
-                <LineChart
-                    width={500}
-                    height={300}
-                    data={chartData}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3"/>
-                    <XAxis dataKey="name"/>
-                    <YAxis/>
-                    <Tooltip content={<CustomTooltip />} />
-                    {
-                        intemperiesClimatiquesList.map(e => (
-                            <Line key={e} type="monotone" dataKey={e} stroke={getSchemeColor(e)} activeDot={{ r: 6 }} />))
-
-                    }
-                </LineChart>
-            </ResponsiveContainer>
+            <div style={{display: "flex", justifyContent: "center", height: "40rem"}}>
+                <Line options={options} data={chartData}/>
+            </div>
         </div>
 
     )
@@ -232,6 +197,9 @@ function getDataFilteredAxeSudEstParisGrenobleOD() {
         .filter(e => e.OD === "Grenoble BV - Paris-Gare-de-Lyon BV" || e.OD === "Paris-Gare-de-Lyon BV - Grenoble BV");
 }
 
+function getDataFiltered() {
+
+}
 
 /* params: name of intemperie
 output: {label: nom d'intemperie1,
@@ -239,69 +207,128 @@ output: {label: nom d'intemperie1,
     borderColor: color of intemperie,
     backgroundColor: color of intemperie
     }
-output: data = [
-  {
-    name: 'Janvier',
-    intemperie1-name: 4000,
-    intemperie2-name: 2400,
-    intemperie3-name: 2400,
-  },
-  {
-    name: 'Fevrier',
-    intemperie1-name: 4000,
-    intemperie2-name: 2400,
-    intemperie3-name: 2400,
-  }
-  ]
  */
-function getChartDataFilteredByIntemperieNew(intemperieList) {
-    const monthNbIncidentObj = getObjectContainingMonthsAndNbIncidents(intemperieList);
+function getChartDataFilteredByIntemperieNew(intemperie) {
+    const monthNbIncidentObj = getObjectContainingMonthsAndNbIncidents();
+    const nbIncidentsAllMonths = [];
     const chartObj = {};
     try {
-        intemperieList.forEach(intemperie => {
-            if (!!dataset1 && Array.isArray(dataset1)) {
-                const filtered = getDataFilteredAxeSudEstParisGrenobleOD()
-                    .filter(e => e.IO_Lib_defaillance === intemperie)
-                    .map(e => (
-                        // with each incident record of a month, increase +1 the value of the respective month key in object holding record {"1": 0, "2":0,...,"12": 0}
-                        ++monthNbIncidentObj[parseInt(e.Mois_circulation) - 1][intemperie])
-                    )
-            }
-        })
+        if (!!dataset1 && Array.isArray(dataset1)) {
+            const filtered = getDataFilteredAxeSudEstParisGrenobleOD()
+                .filter(e => e.IO_Lib_defaillance === intemperie)
+                .map(e => {
+                    // with each incident record of a month, increase +1 the value of the respective month key in object holding record {"1": 0, "2":0,...,"12": 0}
+                    ++monthNbIncidentObj[e.Mois_circulation]
+                })
 
-        return monthNbIncidentObj;
+            for (let key in monthNbIncidentObj) {
+                nbIncidentsAllMonths.push(monthNbIncidentObj[key]);
+            }
+
+            chartObj.label = intemperie;
+            chartObj.data = nbIncidentsAllMonths;
+            chartObj.borderColor = getSchemeColor(intemperie);
+            chartObj.backgroundColor = chartObj.borderColor;
+        }
+        return chartObj;
     } catch (e) {
         throw ("Error while getting chart data filtered by intemperie");
     }
 }
 
-
 /* params: list of intemperies
-output: object containing key: name - value: month, and key: intemperieName - value: number of incidents of month
-{
-    name: '1',
-    intemperie1-name: 0,
-    intemperie2-name: 0,
-    intemperie3-name: 0,
-  }
- */
-function getObjectContainingMonthsAndNbIncidents(intemperieList) {
-    const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-        'Juillet', 'Août', 'Septembre', 'Octobre'];
-
-
-    const arrayMonths = [];
-    for (let i = 0; i < months.length; i++) {
-        const monthNbIncidentObj = {};
-        monthNbIncidentObj.name = months[i];
-        intemperieList.forEach(e => {
-            monthNbIncidentObj[e] = 0;
-        })
-        arrayMonths.push(monthNbIncidentObj);
+output:      {
+    labels: Array[months],
+    datasets: Array[
+    {label: nom d'intemperie1,
+    data: [nb d'incident each month],
+    borderColor: color of intemperie,
+    backgroundColor: color of intemperie
+    },
+    {label: nom d'intemperie2,
+    data: [nb d'incident each month],
+    borderColor: color of intemperie,
+    backgroundColor: color of intemperie
     }
-    return arrayMonths;
+    ]
+    }
+    */
+function getChartDataFilteredForMultipleIntemperiesNew(paramList) {
+    const datasetsArray = [];
+
+    for (let i = 0; i < paramList.length; ++i) {
+        const dataIntemperie = getChartDataFilteredByIntemperieNew(paramList[i]);
+        datasetsArray.push(dataIntemperie);
+    }
+
+    const monthsArrayInNumber = Array.from("123456789");
+    monthsArrayInNumber.push("10");
+    const labels = monthsArrayInNumber
+        .map(e => convertNumberToMonth(e));
+    const result = {
+        labels,
+        datasets: datasetsArray
+    }
+    console.log("final data");
+    console.log(result.valueOf());
+    return result;
 }
 
+// output: object containing months and incident number of each month set to 0 {"1": 0, "2":0,...,"12": 0}
+function getObjectContainingMonthsAndNbIncidents() {
+    const months = Array.from("123456789");
+    months.push("10");
+
+    const monthNbIncidentObj = {};
+
+    for (let i = 0; i < months.length; i++) {
+        monthNbIncidentObj[months[i]] = 0;
+    }
+    return monthNbIncidentObj;
+}
+
+/* param: key as number (1-10)
+ouput: month in French
+ */
+function convertNumberToMonth(key) {
+    let month;
+    switch (key) {
+        case "1":
+            month = "Janvier";
+            break;
+        case "2":
+            month = "Février";
+            break;
+        case "3":
+            month = "Mars";
+            break;
+        case "4":
+            month = "Avril";
+            break;
+        case "5":
+            month = "Mai";
+            break;
+        case "6":
+            month = "Juin";
+            break;
+        case "7":
+            month = "Juillet";
+            break;
+        case "8":
+            month = "Août";
+            break;
+        case "9":
+            month = "Septembre";
+            break;
+        case "10":
+            month = "Octobre";
+            break;
+        default:
+            month = "Unknown month"
+    }
+
+    return month;
+}
 
 function getSchemeColor(data) {
     const intemperiesClimatiquesList = ["Intempéries - Brouillard",
