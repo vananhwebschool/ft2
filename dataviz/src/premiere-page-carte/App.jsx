@@ -1,5 +1,5 @@
 import "./App.css";
-import Map from "./Carte.jsx";
+import Map from "./CarteCode";
 // import Carte from "./Carte.jsx";
 function App() {
     const styles = {
@@ -7,6 +7,8 @@ function App() {
             marginLeft: "60px",
             height: "100%",
             flex: 1,
+            paddingBottom: "65px",
+            paddingRight: "500px",
         },
         partieBasseGauche: {
             height: "100%",
