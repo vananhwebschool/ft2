@@ -9,7 +9,7 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend, ResponsiveContainer
+    ResponsiveContainer
 } from "recharts";
 import {Autocomplete, TextField} from "@mui/material";
 
@@ -39,9 +39,72 @@ export default function SecondPage() {
                 .filter(e => e.OD === value || e.OD === reversedODSelected);
         }
         return value;
-
     }
 
+    // Get sum of montant_compensable, pax, moyen de minutes perdus of a selected OD by month
+    // {
+    //     "name": "Mars",
+    //     "Intempéries - Brouillard": 0,
+    //     "Intempéries - Forte chaleur": 0,
+    //     "Intempéries - Givre / Verglas": 0,
+    //     "Intempéries - Fortes pluies": 0,
+    //     "Intempéries - Vent fort": 0,
+    //     "Végétation": 0,
+    //     "Intempéries - Orage / Grêle": 0,
+    //     "Intempéries - Neige / congères": 0
+    // }
+    // {
+    //     "name": "Juin",
+    //     "Intempéries - Brouillard": 0,
+    //     "Intempéries - Forte chaleur": 1,
+    //     "Intempéries - Givre / Verglas": 0,
+    //     "Intempéries - Fortes pluies": 55,
+    //     "Intempéries - Vent fort": 0,
+    //     "Végétation": 1,
+    //     "Intempéries - Orage / Grêle": 10,
+    //     "Intempéries - Neige / congères": 0
+    // }
+    function getDetailsByODAllMonths(payload) {
+        const month = convertMonthToNumber(payload.name);
+        const listIntemperiesSelected = Object.keys(payload).filter(e => e !== "name");
+        console.log("listIntemperiesSelected");
+        console.log(listIntemperiesSelected);
+        const arrayMontantCompensable = [];
+        const arrayMinsPerdus = [];
+        const arrayPax = [];
+        if (!!value && value !== "") {
+            const selectedODSplit = value.split(" - ");
+            const reversedODSelected = [...selectedODSplit].reverse().join(" - ")
+            const monthData = dataset1.filter((e => e.Axe === "Axe Sud Est"))
+                .filter(e => e.OD === value || e.OD === reversedODSelected)
+                .filter(e => parseInt(e.Mois_circulation) === month)
+                .filter(e => listIntemperiesSelected.includes(e.IO_Lib_defaillance));
+            const monthDataMontantCompensable = monthData.filter(
+                e => !!e.Montant_compensable).map(e => arrayMontantCompensable.push(parseInt(e.Montant_compensable.replace(",", ""))));
+            const sumMontantCompensable =
+                arrayMontantCompensable.length > 0 ? arrayMontantCompensable.reduce((total, num) => total + num) : 0
+
+            const monthDataPax = monthData.filter(
+                e => !!e.Pax).map(e => arrayPax.push(parseInt(e.Pax.replace(",", ""))));
+            const sumPax = arrayPax.length > 0 ? arrayPax.reduce((total, num) => total + num) : 0;
+
+            const moyenMinutesPerdus = monthData.filter(
+                e => !!e.EH && e.EH > 0).map(e => arrayMinsPerdus.push(parseInt(e.EH.replace(",", ""))));
+            const moyenMinsPerdus = arrayMinsPerdus.length > 0 ? Math.round(arrayMinsPerdus.reduce((total, num) => total + num) / arrayMinsPerdus.length) : 0;
+
+            return [sumMontantCompensable, sumPax, moyenMinsPerdus];
+        }
+        return value;
+    }
+
+    // Convert month to number
+    function convertMonthToNumber(key) {
+        const months = {
+            'Janvier': 1, 'Février': 2, 'Mars': 3, 'Avril': 4, 'Mai': 5, 'Juin': 6,
+            'Juillet': 7, 'Août': 8, 'Septembre': 9, 'Octobre': 10
+        };
+        return months[key];
+    }
 
     /* params: name of intemperie
     output: {label: nom d'intemperie1,
@@ -98,7 +161,6 @@ export default function SecondPage() {
     function getObjectContainingMonthsAndNbIncidents(intemperieList) {
         const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
             'Juillet', 'Août', 'Septembre', 'Octobre'];
-
 
         const arrayMonths = [];
         for (let i = 0; i < months.length; i++) {
@@ -205,12 +267,13 @@ export default function SecondPage() {
 
     const CustomTooltip = ({active, payload, label}) => {
         if (active && payload && payload.length) {
-            console.log("payload");
-            console.log(payload.valueOf());
+            const data = getDetailsByODAllMonths(payload[0].payload);
             return (
                 <div className="custom-tooltip">
-                    <p className="label">{`${label} : ${payload[0].value}`}</p>
-                    <p className="desc">Anything you want can be displayed here.</p>
+                    <p className="label">{`${label}`}</p>
+                    <p className="desc">{`Montant compensable : ${data[0]}`}</p>
+                    <p className="desc">{`Passagers impactés : ${data[1]}`}</p>
+                    <p className="desc">{`Minutes perdus : ${data[2]}`}</p>
                 </div>
             );
         }
