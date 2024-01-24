@@ -41,34 +41,23 @@ export default function SecondPage() {
         return value;
     }
 
-    // Get sum of montant_compensable, pax, moyen de minutes perdus of a selected OD by month
-    // {
-    //     "name": "Mars",
-    //     "Intempéries - Brouillard": 0,
-    //     "Intempéries - Forte chaleur": 0,
-    //     "Intempéries - Givre / Verglas": 0,
-    //     "Intempéries - Fortes pluies": 0,
-    //     "Intempéries - Vent fort": 0,
-    //     "Végétation": 0,
-    //     "Intempéries - Orage / Grêle": 0,
-    //     "Intempéries - Neige / congères": 0
-    // }
-    // {
-    //     "name": "Juin",
-    //     "Intempéries - Brouillard": 0,
-    //     "Intempéries - Forte chaleur": 1,
-    //     "Intempéries - Givre / Verglas": 0,
-    //     "Intempéries - Fortes pluies": 55,
-    //     "Intempéries - Vent fort": 0,
-    //     "Végétation": 1,
-    //     "Intempéries - Orage / Grêle": 10,
-    //     "Intempéries - Neige / congères": 0
-    // }
+    /*Get sum of montant_compensable, pax, moyen de minutes perdus of a selected OD by month
+    param: {
+        "name": "Mars",  -- selected month on chart
+        "Intempéries - Brouillard": 0, -- all selected intemperies buttons
+        "Intempéries - Forte chaleur": 0,
+        "Intempéries - Givre / Verglas": 0,
+        "Intempéries - Fortes pluies": 0,
+        "Intempéries - Vent fort": 0,
+        "Végétation": 0,
+        "Intempéries - Orage / Grêle": 0,
+        "Intempéries - Neige / congères": 0
+    }
+    output: Array[numberIncidents, sumMontantCompensable, sumPax, moyenMinsPerdus] of selected month on chart
+    */
     function getDetailsByODAllMonths(payload) {
         const month = convertMonthToNumber(payload.name);
         const listIntemperiesSelected = Object.keys(payload).filter(e => e !== "name");
-        console.log("listIntemperiesSelected");
-        console.log(listIntemperiesSelected);
         const arrayMontantCompensable = [];
         const arrayMinsPerdus = [];
         const arrayPax = [];
@@ -79,20 +68,20 @@ export default function SecondPage() {
                 .filter(e => e.OD === value || e.OD === reversedODSelected)
                 .filter(e => parseInt(e.Mois_circulation) === month)
                 .filter(e => listIntemperiesSelected.includes(e.IO_Lib_defaillance));
-            const monthDataMontantCompensable = monthData.filter(
+            monthData.filter(
                 e => !!e.Montant_compensable).map(e => arrayMontantCompensable.push(parseInt(e.Montant_compensable.replace(",", ""))));
             const sumMontantCompensable =
                 arrayMontantCompensable.length > 0 ? arrayMontantCompensable.reduce((total, num) => total + num) : 0
 
-            const monthDataPax = monthData.filter(
+            monthData.filter(
                 e => !!e.Pax).map(e => arrayPax.push(parseInt(e.Pax.replace(",", ""))));
             const sumPax = arrayPax.length > 0 ? arrayPax.reduce((total, num) => total + num) : 0;
 
-            const moyenMinutesPerdus = monthData.filter(
+            monthData.filter(
                 e => !!e.EH && e.EH > 0).map(e => arrayMinsPerdus.push(parseInt(e.EH.replace(",", ""))));
             const moyenMinsPerdus = arrayMinsPerdus.length > 0 ? Math.round(arrayMinsPerdus.reduce((total, num) => total + num) / arrayMinsPerdus.length) : 0;
 
-            return [sumMontantCompensable, sumPax, moyenMinsPerdus];
+            return [monthData.length, sumMontantCompensable, sumPax, moyenMinsPerdus];
         }
         return value;
     }
@@ -107,11 +96,6 @@ export default function SecondPage() {
     }
 
     /* params: name of intemperie
-    output: {label: nom d'intemperie1,
-        data: [nb d'incident each month eg 1,0,15,0,0,0],
-        borderColor: color of intemperie,
-        backgroundColor: color of intemperie
-        }
     output: data = [
       {
         name: 'Janvier',
@@ -271,9 +255,10 @@ export default function SecondPage() {
             return (
                 <div className="custom-tooltip">
                     <p className="label">{`${label}`}</p>
-                    <p className="desc">{`Montant compensable : ${data[0]}`}</p>
-                    <p className="desc">{`Passagers impactés : ${data[1]}`}</p>
-                    <p className="desc">{`Minutes perdus : ${data[2]}`}</p>
+                    <p className="desc">{`Nombre d'incidents : ${data[0]}`}</p>
+                    <p className="desc">{`Montant compensable : ${data[1]} €`}</p>
+                    <p className="desc">{`Passagers impactés : ${data[2]}`}</p>
+                    <p className="desc">{`Minutes perdus : ${data[3]}`}</p>
                 </div>
             );
         }
