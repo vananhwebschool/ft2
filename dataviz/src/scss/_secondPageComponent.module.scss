@@ -11,8 +11,13 @@ $orageColor: #FFB82B;
 $neigeColor: #A4D8EB;
 $tousColor: #6E1E78;
 .sectionButtonsAndChart {
-  width: 110rem;
+  width: 130rem;
   margin-top: 5rem;
+}
+
+.sectionButtonsAndODSelector {
+  display: flex;
+  justify-content: space-between;
 }
 
 .logoTextBox {
@@ -37,8 +42,14 @@ $tousColor: #6E1E78;
 }
 
 .commonBoxOneTextLine {
-  @include cp.commonBox(12.5rem, 3.375rem);
+  @include cp.commonBox(29.5rem, 3.375rem);
   @extend %smallText;
+  color: white;
+
+  div {
+    background-color: $tousColor;
+    color: white;
+  }
 }
 
 .commonBoxTwoTextLines {
@@ -63,18 +74,18 @@ $tousColor: #6E1E78;
     transform: rotate(45deg);
   }
 }
-
+.sectionButtons {
+  width: 65rem;
+}
 .firstIntemperieButtonSection {
   display: flex;
   justify-content: space-between;
-  width: 50%;
   margin-bottom: 15px;
 }
 
 .secondIntemperieButtonSection {
   display: flex;
   justify-content: space-evenly;
-  width: 50%;
   margin-bottom: 3rem;
 }
 

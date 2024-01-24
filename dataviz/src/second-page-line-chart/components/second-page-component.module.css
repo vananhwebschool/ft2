@@ -11,8 +11,13 @@
 }
 
 .sectionButtonsAndChart {
-  width: 110rem;
+  width: 130rem;
   margin-top: 5rem;
+}
+
+.sectionButtonsAndODSelector {
+  display: flex;
+  justify-content: space-between;
 }
 
 .logoTextBox {
@@ -31,7 +36,7 @@
 }
 
 .commonBoxOneTextLine {
-  width: 12.5rem;
+  width: 29.5rem;
   height: 3.375rem;
   flex-shrink: 0;
   border-radius: 0.25rem;
@@ -41,6 +46,11 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 1px;
+  color: white;
+}
+.commonBoxOneTextLine div {
+  background-color: #6E1E78;
+  color: white;
 }
 
 .commonBoxTwoTextLines {
@@ -74,17 +84,19 @@
   transform: rotate(45deg);
 }
 
+.sectionButtons {
+  width: 65rem;
+}
+
 .firstIntemperieButtonSection {
   display: flex;
   justify-content: space-between;
-  width: 50%;
   margin-bottom: 15px;
 }
 
 .secondIntemperieButtonSection {
   display: flex;
   justify-content: space-evenly;
-  width: 50%;
   margin-bottom: 3rem;
 }
 
