@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.footerLeftBigBox {
+.footerLeftBigBoxNotClicked {
     background-color: rgb(110, 30, 120);
     color: white;
     width: 12.5rem;
@@ -26,8 +26,25 @@
     align-items: center;
     display: flex;
     justify-content: center;
-}
 
+}
+.footerLeftBigBoxNotClicked a {
+    text-decoration: none;
+    color: white;
+}
+.footerLeftBigBoxClicked {
+    background-color: #666666;
+    width: 12.5rem;
+    margin-right: 0.5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.footerLeftBigBoxClicked a {
+    text-decoration: none;
+    color: white;
+
+}
 .footerGapBox {
     background-color: rgb(110, 30, 120);
     width: 89.5rem;

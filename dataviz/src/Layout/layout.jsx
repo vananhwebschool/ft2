@@ -1,5 +1,5 @@
 import logo from "../assets/logo.svg";
-import { Outlet } from "react-router-dom";
+import {Link, Outlet, useLocation} from "react-router-dom";
 import "./layout.css"
 export default function Component1() {
   const styles = {
@@ -195,6 +195,9 @@ export default function Component1() {
       marginLeft: "2px",
     },
   };
+
+  const location = useLocation().pathname;
+
   return (
     <>
       <div style={styles.contenus}>
@@ -217,13 +220,13 @@ export default function Component1() {
             <div className="footerLeftSmallBox">
               2023
             </div>
-            <div className="footerLeftBigBox">
-              Map
+            <div className={location === "/" ? "footerLeftBigBoxClicked" : "footerLeftBigBoxNotClicked"}>
+              <Link to="/">Map</Link>
             </div>
-            <div className="footerLeftBigBox">
-              Graphique
+            <div className={location === "/second-page" ? "footerLeftBigBoxClicked" : "footerLeftBigBoxNotClicked"}>
+              <Link to="/second-page">Graphique</Link>
             </div>
-            <div className="footerLeftBigBox">
+            <div className="footerLeftBigBoxNotClicked">
               Résumé
             </div>
           </div>
