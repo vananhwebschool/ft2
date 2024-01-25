@@ -20,3 +20,10 @@ body {
 body * {
   box-sizing: border-box;
 }
+
+.partieBox {
+  flex-direction: column;
+  align-self: flex-end;
+  margin-bottom: 5rem;
+  display: flex;
+}

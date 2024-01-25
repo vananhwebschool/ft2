@@ -1,0 +1,66 @@
+.boldText, .textSmall, .commonBoxOne {
+  color: white;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+}
+
+.textSmall, .commonBoxOne {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.boldText {
+  font-size: 3.125rem;
+  font-weight: 700;
+}
+
+.boxGroup {
+  display: flex;
+}
+
+.commonBoxOne {
+  width: 24.1rem;
+  height: 4.25rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background: #6E1E78;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+  padding: 0.25rem 0;
+}
+
+.commonBoxTwo {
+  width: 11.97rem;
+  height: 10.0625rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background: #6E1E78;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.commonBoxThree {
+  width: 7.95rem;
+  height: 7.4375rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background: #6E1E78;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=component-bas-gauche.module.css.map */
