@@ -8,6 +8,7 @@ export default [
     children: [
       { path: "", element: <App /> },
       { path: "/second-page", element: <SecondPage /> },
+      { path: "/third-page", element: <SecondPage /> },
     ],
   },
 ];

@@ -226,8 +226,8 @@ export default function Component1() {
             <div className={location === "/second-page" ? "footerLeftBigBoxClicked" : "footerLeftBigBoxNotClicked"}>
               <Link to="/second-page">Graphique</Link>
             </div>
-            <div className="footerLeftBigBoxNotClicked">
-              Résumé
+            <div className={location === "/third-page" ? "footerLeftBigBoxClicked" : "footerLeftBigBoxNotClicked"}>
+              <Link to="/third-page">Résumé</Link>
             </div>
           </div>
           <div className="footerGapBox"></div>
