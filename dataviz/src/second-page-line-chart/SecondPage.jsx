@@ -250,7 +250,7 @@ export default function SecondPage() {
     }
 
     const CustomTooltip = ({active, payload, label}) => {
-        if (active && payload && payload.length && payload.length > 0 && payload[0].payload.length > 0) {
+        if (active && payload && payload.length > 0 && !!payload[0].payload) {
             const data = getDetailsByODAllMonths(payload[0].payload);
             return (
                 <div className="custom-tooltip">
