@@ -252,15 +252,17 @@ export default function SecondPage() {
     const CustomTooltip = ({active, payload, label}) => {
         if (active && payload && payload.length > 0 && !!payload[0].payload) {
             const data = getDetailsByODAllMonths(payload[0].payload);
-            return (
-                <div className="custom-tooltip">
-                    <p className="label">{`${label}`}</p>
-                    <p className="desc">{`Nombre d'incidents : ${data[0]}`}</p>
-                    <p className="desc">{`Montant compensable : ${data[1]} €`}</p>
-                    <p className="desc">{`Passagers impactés : ${data[2]}`}</p>
-                    <p className="desc">{`Minutes perdus : ${data[3]}`}</p>
-                </div>
-            );
+            if (!!data && Array.isArray(data)) {
+                return (
+                    <div className="custom-tooltip">
+                        <p className="label">{`${label}`}</p>
+                        <p className="desc">{`Nombre d'incidents : ${data[0]}`}</p>
+                        <p className="desc">{`Montant compensable : ${data[1]} €`}</p>
+                        <p className="desc">{`Passagers impactés : ${data[2]}`}</p>
+                        <p className="desc">{`Minutes perdus : ${data[3]}`}</p>
+                    </div>
+                );
+            }
         }
 
         return null;
