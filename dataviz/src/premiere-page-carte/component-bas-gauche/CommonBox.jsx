@@ -40,7 +40,7 @@ export default function CommonBox({data, text}) {
                 </div>
                 <div className={styles.commonBoxThree}>
                     <div className={styles.textSmall}>{data[4]}</div>
-                    <div className={styles.textSmall}>Minutes perdus</div>
+                    <div className={styles.textSmall}>Minutes perdues</div>
                 </div>
             </div>
         )

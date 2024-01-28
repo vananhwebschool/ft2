@@ -362,4 +362,64 @@
   color: white;
 }
 
+.partieBasse {
+  margin-left: 60px;
+  height: 36px;
+  flex: 1;
+  display: flex;
+}
+
+.partieHaute {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  padding-top: 50px;
+  margin-right: 50px;
+}
+
+.partieGauche {
+  display: flex;
+}
+
+.logoCommon {
+  margin: 0;
+  display: flex;
+  top: 50px;
+  left: 50px;
+}
+
+.rectangleAnnee {
+  background-color: #6E1E78;
+  width: 165px;
+  height: 100px;
+  padding-top: 10px;
+  margin-left: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  display: flex;
+  font-family: "Uber Move";
+}
+
+.texte1 {
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0px;
+}
+
+.texte2 {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0px;
+}
+
 /*# sourceMappingURL=second-page-component.module.css.map */

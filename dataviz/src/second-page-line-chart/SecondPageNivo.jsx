@@ -1,11 +1,11 @@
-import SncfLogo from "../anas-second-page-line-chart/components/SncfLogo.jsx";
-import OdSelector from "../anas-second-page-line-chart/components/OdSelector.jsx";
+import SncfLogo from "../components/SncfLogo.jsx";
+import OdSelector from "../components/OdSelector.jsx";
 import LineChart from "./components/LineChartNivo.jsx";
 import dataset1 from "../data/dataset1.json"
 import dataTest from "../data/dataTest.json"
 import {useState} from "react";
-import styles from "../anas-second-page-line-chart/components/second-page-component.module.css";
-import IntemperieButton from "../anas-second-page-line-chart/components/IntemperieButton.jsx";
+import styles from "../components/second-page-component.module.css";
+import IntemperieButton from "../components/IntemperieButton.jsx";
 
 export default function SecondPageNivo() {
     const styleDiv = {

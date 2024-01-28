@@ -6,7 +6,7 @@ export default function Component1() {
     contenus: {
       display: "flex",
       flexDirection: "column",
-      height: "905px",
+      height: "97vh",
       backgroundColor: "white",
       marginTop: "1rem",
       marginRight: "1rem",
@@ -201,20 +201,8 @@ export default function Component1() {
   return (
     <>
       <div style={styles.contenus}>
-        <div style={styles.partieHaute}>
-          <div style={styles.partieGauche}>
-            <img src={logo} style={styles.logo}></img>
-            <div style={styles.rectangleAnnee}>
-              <div>
-                <p style={styles.texte1}>2023</p>
-                <p style={styles.texte2}>Résumé</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style={styles.partieBasse}>
           <Outlet></Outlet>
-        </div>
+        {/*</div>*/}
         <div className="partieFooter">
           <div className="footerSection">
             <div className="footerLeftSmallBox">

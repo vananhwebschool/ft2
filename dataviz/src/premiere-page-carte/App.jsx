@@ -2,8 +2,9 @@ import "./App.css";
 import Map from "./CarteCode";
 import DataBox from "./component-bas-gauche/DataBox.jsx";
 import CommonBox from "./component-bas-gauche/CommonBox.jsx";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import dataset1 from "../data/dataset1.json"
+import logo from "../assets/logo.svg";
 
 function App() {
     const [axe, setAxe] = useState("France");
@@ -12,6 +13,59 @@ function App() {
             marginLeft: "60px",
             height: "95%",
             flex: 1
+        },
+        partieHaute: {
+            display: "flex",
+            justifyContent: "space-between",
+            marginLeft: "50px",
+            paddingTop: "50px",
+            marginRight: "50px",
+        },
+        partieGauche: {
+            display: "flex",
+        },
+        rectangleAnnee: {
+            backgroundColor: "#6E1E78",
+            width: "165px",
+            height: "100px",
+            paddingTop: "10px",
+            marginLeft: "30px",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "4px",
+        },
+        texte1: {
+            color: "#FFF",
+            textAlign: "center",
+            fontFamily: "Uber Move",
+            fontSize: "50px",
+            fontStyle: "normal",
+            fontWeight: "700",
+            lineHeight: "normal",
+            margin: "0px",
+        },
+        texte2: {
+            color: "#FFF",
+            textAlign: "center",
+            fontFamily: "Uber Move",
+            fontSize: "20px",
+            fontStyle: "normal",
+            fontWeight: "500",
+            lineHeight: "normal",
+            margin: "0px",
+        },
+        logo: {
+            margin: "0px",
+            display: "flex",
+            top: "50px",
+            left: "5px",
+        },
+        partieBasse: {
+            marginLeft: "60px",
+            height: "36px",
+            flex: 1,
+            display: "flex"
         }
     }
 
@@ -20,6 +74,19 @@ function App() {
         console.log("clickedAxe");
         console.log(clickedAxe);
     }
+
+    const memoizedLogo2023 = useMemo(() => {
+        return (
+            <div style={styles.partieGauche}>
+                <img src={logo} style={styles.logo}></img>
+                <div style={styles.rectangleAnnee}>
+                    <div>
+                        <p style={styles.texte1}>2023</p>
+                        <p style={styles.texte2}>Résumé</p>
+                    </div>
+                </div>
+            </div>)
+    }, []);
 
     function getImpactDataByAxe() {
         const intemperiesClimatiquesList = ["Intempéries - Brouillard",
@@ -68,23 +135,28 @@ function App() {
     const impactDataByAxe = getImpactDataByAxe();
     return (
         <>
-            <div className={"partieBox"}>
+            <div style={styles.partieHaute}>
+                {memoizedLogo2023}
                 <DataBox boxNumber={1}>
-                    <CommonBox text={"Données d'impact"} data={impactDataByAxe}/>
-                </DataBox>
-                <DataBox boxNumber={2}>
-                    <CommonBox data={impactDataByAxe}/>
-                </DataBox>
-                <DataBox boxNumber={3}>
-                    <CommonBox data={impactDataByAxe}/>
+                    <CommonBox text={axe} data={impactDataByAxe}/>
                 </DataBox>
             </div>
-            <div style={styles.partieBasseDroite}>
-                <Map onClickMap={handleClickMap}></Map>
+            <div style={styles.partieBasse}>
+                <div className={"partieBox"}>
+                    <DataBox boxNumber={1}>
+                        <CommonBox text={"Données d'impact"} data={impactDataByAxe}/>
+                    </DataBox>
+                    <DataBox boxNumber={2}>
+                        <CommonBox data={impactDataByAxe}/>
+                    </DataBox>
+                    <DataBox boxNumber={3}>
+                        <CommonBox data={impactDataByAxe}/>
+                    </DataBox>
+                </div>
+                <div style={styles.partieBasseDroite}>
+                    <Map onClickMap={handleClickMap}></Map>
+                </div>
             </div>
-            <DataBox boxNumber={1}>
-                <CommonBox text={axe} data={impactDataByAxe}/>
-            </DataBox>
         </>
     );
 }
